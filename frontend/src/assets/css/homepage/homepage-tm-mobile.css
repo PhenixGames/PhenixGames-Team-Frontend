@@ -1,0 +1,61 @@
+@media only screen and (max-width: 1151px) {
+    .clock {
+        width: auto !important;
+        float: left !important;
+    }
+    .clock div {
+        display: inline-flex;
+        width: 50%;
+        float: left !important;
+    }
+}
+
+@media only screen and (max-width: 1060px) {
+    body > main > section > main > header {
+        display: inline-block !important;
+    }
+    body > main > section > main > header div {
+        width: 100% !important;
+    }
+    .teaminfo {
+        width: 100% !important;
+    }
+    .tablelist {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    body > main > section > header {
+        display: inline-block !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    body > main {
+        margin: 50px 50px 0 0 !important;
+    }
+    .pl_button_wrapper {
+       float: left !important;
+       display: block;
+       margin: 0 50%;
+    }
+}
+
+@media only screen and (max-width: 634px) {
+    body > main > section > header {
+        display: block !important;
+    }
+    body > main > section > header > div:nth-child(2) {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    main section header div{
+        width: 100%;
+    }
+    .clock div {
+        width: 100%;
+    }
+}

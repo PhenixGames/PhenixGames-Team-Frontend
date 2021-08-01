@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px auto;
+}
+.bg {
+    left: 50%;
+    top: 50%;
+    transform: translate(-30%, -40%) scale(1.5);
+    filter: blur(15px);
+    z-index: -1;
+}
+
+.login {
+    background: rgba(27, 27, 27, 0.794);
+    padding: 50px;
+    border-radius: 20px;
+    width: 600px;
+}
+
+.login_pic img {
+    width: 200px;
+}
+
+.login_wrapper {
+    margin: 40px 0;
+}
+
+.login_wrapper input[type="text"],
+.login_wrapper input[type="password"] {
+    background: none;
+    padding: 5px 20px;
+    margin: 10px 0;
+    border: 0;
+    border-bottom: 2px solid white;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.login_wrapper input[type="submit"] {
+    padding: 8px 15px;
+    background: none;
+    border: 2px solid white;
+    border-radius: 15px;
+    transition: all .2s;
+    margin: 20px 0 0 0 ;
+}
+
+.login_wrapper input[type="submit"]:hover {
+    box-shadow: 0px 0px 10px #ffffff;
+    background: var(--white);
+    color: var(--black);
+}
+
+.savelogin {
+    margin: 20px 0;
+    font-size: .7rem;
+}
+
+.errormessage {
+    margin: 20px 0 -20px 0;
+}

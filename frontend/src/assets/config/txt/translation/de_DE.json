@@ -1,0 +1,44 @@
+{
+    "home": {
+        "s": "Soft",
+        "rp": "Roleplay",
+        "gw": "Gangwars",
+        "txt": "Spiele hochwertiges und spannendes Soft Roleplay"
+    },
+    "nav": {
+        "home": "Home",
+        "forum": "Forum"
+    },
+    "about": {
+        "pl": "Projekt Leitung",
+        "ct": "Content",
+        "sd": "Server Entwicklung",
+        "wd": "Web Entwicklung",
+        "td": "TeamSpeak Entwicklung",
+        "id": "Ideen Entwicklung",
+        "user": {
+            "pl1": "Ghoster599",
+            "pl2": "Mittelblut9",
+            "pl3": "Veqtive",
+            "ctn1": "StreetSamurai"
+        }
+    },
+    "footer": {
+        "ds": "Datenschutz",
+        "im": "Impressum"
+    },
+    "gangwars": {
+        "gw": "Gangwars",
+        "gw_txt": "Spiele hochwertiges und spannendes Gangwars.",
+        "ft": "Features",
+        "mft": "die vollständige Featureliste gibt es",
+        "mft2": "hier"
+    },
+    "roleplay": {
+        "rp": "Roleplay",
+        "txt": "Spiele hochwertiges und spannendes Soft Roleplay",
+        "ft": "Features",
+        "mft": "die vollständige Featureliste gibt es",
+        "mft2": "hier"
+    }
+}

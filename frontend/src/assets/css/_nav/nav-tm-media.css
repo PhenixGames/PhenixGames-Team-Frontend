@@ -1,0 +1,23 @@
+@media only screen and (min-width: 1350px) {
+    .infobar {
+        width: auto !important;
+        right: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    nav {
+        left: -250px;
+    }
+    .infobar {
+        width: 103% !important;
+        left: 0 !important;
+        z-index: -1;
+    }
+    .infobar span:first-child div{
+        z-index: 2 !important;
+    }
+    .startseite_tab_select div {
+        width: 100%;
+    }
+}

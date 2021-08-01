@@ -1,0 +1,17 @@
+{
+    "routing": {
+        "root": "/teambereich",
+        "getuser": {
+            "route": "/getuser",
+            "name": "Get User"
+        },
+        "signin": {
+            "route": "/signin",
+            "name": "Teambereich Login"
+        },
+        "home": {
+            "route": "/",
+            "name": "Teambereich Home"
+        }
+    }
+}

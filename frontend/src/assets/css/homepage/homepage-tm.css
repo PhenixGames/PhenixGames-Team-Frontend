@@ -1,0 +1,59 @@
+@import url('./homepage-tm-mobile.css');
+
+.startseite_body  {
+    width: 82%;
+    float: left;
+}
+
+.startseite_section header {
+    width: 100%;
+    height: auto;    
+    display: flex;
+}
+
+.startseite_section main > header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.startseite_section main {
+    display: grid;
+    justify-content: center;
+}
+
+
+.startseite_tab_select {
+    max-width: 100%;
+}
+
+.startseite_tab_select div {
+    width: 330px;
+    cursor: pointer;
+}
+
+.startseite_tab_select div span img {
+    margin-top: -10px;
+}
+
+.startseite_tab_select div span.fsize-1-5::after {
+    content: '';
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border: 0;
+}
+
+.startseite_section main .team_info {
+    max-width: 400px;
+}
+
+.startseite_section main .teaminfo {
+    margin: 30px;
+    width: auto;
+}
+
+.team_info_history {
+    width: 40px;
+}

@@ -1,0 +1,201 @@
+* {
+    transition: 0.1s ease-in-out;
+}
+
+body {
+    background: var(--tmbg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    transition: none !important;
+}
+
+.fsize-1 {
+    font-size: 1em;
+}
+
+.fsize-1-5 {
+    font-size: 1.5em;
+}
+
+.fsize-2 {
+    font-size: 2em;
+}
+
+.fsize-3 {
+    font-size: 3em;
+}
+
+.fsize-4 {
+    font-size: 4em;
+}
+
+.fsize-5 {
+    font-size: 5em;
+}
+
+.fsize-6 {
+    font-size: 6em;
+}
+
+.fsize-7 {
+    font-size: 7em;
+}
+
+.fsize-8 {
+    font-size: 8em;
+}
+
+
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+body>main {
+    margin: 50px 0px 0 250px;
+    padding: 0 50px 0 0;
+}
+
+.tab {
+    display: inline-block;
+    padding: 20px 40px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: var(--black);
+    background: var(--tmtabs);
+    color: var(--white);
+}
+
+.tab:hover {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0);
+}
+
+.tab-33 {
+    width: 33%;
+}
+
+.welcome {
+    background: var(--organgenav);
+}
+
+
+/*! POPUP */
+
+.popup {
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.822);
+}
+
+.popup #popupclose {
+    margin: 30px 50px 0 0;
+}
+
+.popup_wrapper {
+    height: 80%;
+    width: 80%;
+    background: #0f0f0f;
+    margin: 80px 0;
+    margin-left: 60px;
+    overflow-y: auto;
+}
+
+.popup_wrapper header {
+    display: inline-flex;
+}
+
+/*! TABLES */
+.playerlist,
+.vehiclelist,
+.bewerbungslist {
+    overflow-x: auto;
+}
+
+/*! BUTTONS */
+.pl_button_wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+}
+
+.pl_button {
+    box-shadow: var(--boxshadow);
+    height: 53px;
+    width: 250px;
+    margin: 19px 0;
+    background: #23262C;
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0.4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pl_button:hover {
+    transform: translateY(-2px);
+}
+
+.on_off {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.on {
+    background: green;
+}
+
+.off {
+    background: red;
+}
+
+
+main tbody label div {
+    height: 40px;
+    width: 40px;
+    background: white;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked~.div:before {
+    content: '';
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 4px;
+    width: 13px;
+    background: black;
+    transform: rotate(39deg) translate(7px, 3.5px);
+}
+
+input[type="checkbox"]:checked~.div:after {
+    content: '';
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 4px;
+    width: 25px;
+    background: black;
+    transform: rotate(-50deg) translateX(-5px);
+}
+
+input[type="checkbox"]:checked~.pl_button {
+    cursor: pointer !important;
+    opacity: 1;
+}

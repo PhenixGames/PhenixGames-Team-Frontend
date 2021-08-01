@@ -1,0 +1,115 @@
+18:33:08.709 INFO  test2021-08-01T16:33:08.709Z 
+18:33:20.444 WARN  test2021-08-01T16:33:20.444Z 
+18:33:25.300 WARN  test2021-08-01T16:33:25.299Z 
+18:33:59.815 ERROR test2021-08-01T16:33:59.815Z 
+18:34:36.178 INFO  test2021-08-01T16:34:36.178Z 
+18:34:39.305 INFO  test2021-08-01T16:34:39.305Z 
+18:34:56.762 WARN  test2021-08-01T16:34:56.762Z 
+18:35:11.364 WARN  test2021-08-01T16:35:11.363Z 
+18:35:17.839 WARN  test2021-08-01T16:35:17.839Z 
+18:35:19.754 WARN  test2021-08-01T16:35:19.754Z 
+18:35:24.390 WARN  test2021-08-01T16:35:24.390Z 
+18:35:31.758 WARN  test2021-08-01T16:35:31.758Z 
+18:35:36.923 WARN  test2021-08-01T16:35:36.923Z 
+18:35:46.510 WARN  123454 2021-08-01T16:35:46.510Z 
+18:35:54.625 WARN  123454 2021-08-01T16:35:54.625Z 
+18:36:13.838 WARN  123454 2021-08-01T16:36:13.837Z 
+18:36:24.387 WARN  duwadhawudh 2021-08-01T16:36:24.386Z 
+18:36:26.008 WARN  duwadhawudh 2021-08-01T16:36:26.008Z 
+18:36:43.435 WARN  123duwadhawudh 2021-08-01T16:36:43.435Z 
+18:37:55.598 INFO  {"family":0,"hostname":"MSNUC-Web"} 
+18:40:03.994 INFO  /api/team/getuser connected{"family":0,"hostname":"MSNUC-Web"} 
+18:41:53.082 INFO  /api/team/getuser connected{"family":0,"hostname":"MSNUC-Web"} 
+18:42:09.678 INFO  /api/team/getuser connected{"family":0,"hostname":"MSNUC-Web"} 
+18:42:59.338 INFO  /api/team/getuser connected 192.168.1.200 
+18:44:04.922 INFO  /api/team/getuser connected with ip: ::ffff:192.168.1.200 
+18:52:52.135 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+18:53:08.886 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+18:56:43.581 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+18:56:50.845 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+18:57:03.138 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:00:56.901 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:08:10.016 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:08:39.109 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:09:52.852 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:11:39.384 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:11:39.394 WARN  Database error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+{"code":"ER_PARSE_ERROR","errno":1064,"sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1","sqlState":"42000","index":0,"sql":"SELECT * from team_login where teamid = ?"}
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+    at Query.Sequence._packetToError (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:198:13)
+    at addChunk (_stream_readable.js:288:12)
+    --------------------
+    at Protocol._enqueue (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Connection.query (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/Connection.js:198:25)
+    at Object.selectlogindata (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/api/team/getuser/getuser.js:25:14)
+    at app.get (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/server/route/route.js:21:17)
+    at Layer.handle [as handle_request] (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/index.js:335:12) 
+19:11:57.257 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:11:57.266 WARN  Database error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+{"code":"ER_PARSE_ERROR","errno":1064,"sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1","sqlState":"42000","index":0,"sql":"SELECT * from team_login where teamid = ?"}
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+    at Query.Sequence._packetToError (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:198:13)
+    at addChunk (_stream_readable.js:288:12)
+    --------------------
+    at Protocol._enqueue (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Connection.query (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/mysql/lib/Connection.js:198:25)
+    at Object.selectlogindata (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/api/team/getuser/getuser.js:25:14)
+    at app.get (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/server/route/route.js:21:17)
+    at Layer.handle [as handle_request] (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Website/backend/node_modules/express/lib/router/index.js:335:12) 
+19:12:18.061 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:12:37.834 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:13:09.888 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:13:40.985 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:14:02.266 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:14:24.580 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:14:26.209 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:14:39.104 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:14:46.034 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:14:46.904 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:14:55.056 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:15:03.071 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:15:19.158 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:15:39.484 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:16:07.157 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:16:22.083 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:17:06.965 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:17:24.261 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:22:23.114 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:33:28.294 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:33:42.749 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:34:27.976 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:54:19.306 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:06:06.968 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:06:33.918 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:07:03.574 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:07:12.221 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:08:10.089 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:10:05.221 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:10:26.437 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:31:45.045 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 

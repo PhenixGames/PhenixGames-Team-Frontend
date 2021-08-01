@@ -1,0 +1,6 @@
+{
+    "login": {
+        "error_b": "Du musst einen Benutzernamen angeben.",
+        "error_p": "Du musst ein Passwort eingeben."
+    }
+}
