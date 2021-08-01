@@ -15,7 +15,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(config.frontend.baseURL),
+    history: createWebHistory(teamconfig.frontend.baseURL),
     routes
 })
 

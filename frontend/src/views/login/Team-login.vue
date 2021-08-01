@@ -59,7 +59,6 @@
 import { checkForm } from "../../assets/js/login/checkForm";
 import { tmlogin } from "../../assets/js/login/team-login";
 import { getuser } from '../../assets/js/getuser';
-
 export default {
   name: "team Login",
   data: () => ({
@@ -75,13 +74,10 @@ export default {
   methods: {
     checkInput: function (e) {
       e.preventDefault();
-
       this.errors = [];
-
       let check = checkForm.checkForm(this.teamid, this.password);
       this.errors.push(check);
       if (check) return;
-
       tmlogin.tmlogin((response) => {
         console.log(response);
       });

@@ -1,4 +1,11 @@
 {
+    "frontend": {
+        "host": "http://",
+        "port": "8080",
+        "domain": "192.186.1.200",
+        "baseURL": "/",
+        "currentserver": true
+    },
     "routing": {
         "root": "/teambereich",
         "getuser": {

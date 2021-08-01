@@ -76,7 +76,7 @@
 </template>
 
 <style scoped>
-@import url('../../../assets/css/team/_nav/nav-tm.css');
+@import url('../../assets/css/_nav/nav-tm.css');
 </style>
 
 <script>

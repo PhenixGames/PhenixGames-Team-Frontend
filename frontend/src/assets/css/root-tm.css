@@ -1,9 +1,25 @@
+@import url('_fonts.css');
+
 * {
     transition: 0.1s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
 }
 
 body {
     background: var(--tmbg);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+#app {
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
