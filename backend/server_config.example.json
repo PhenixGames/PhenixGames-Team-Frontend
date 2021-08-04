@@ -1,5 +1,6 @@
 {
     "sessionSecret": "",
+    "domain": "",
     "port": "",
     "database": {
       "host": "",

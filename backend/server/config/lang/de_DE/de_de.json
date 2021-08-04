@@ -1,0 +1,11 @@
+{
+    "validation": {
+        "signin": {
+            "NaN": "Die TeamID muss eine Nummer sein.",
+            "nolength": "Die TeamID muss mindestens 5 Zeichen lang sein.",
+            "Npwd": "Es wurde kein Passwort übermittelt.",
+            "Nf": "Es konnt kein Account gefunden wurden.",
+            "nc": "TeamID oder Passwort sind falsche"
+        }
+    }
+}

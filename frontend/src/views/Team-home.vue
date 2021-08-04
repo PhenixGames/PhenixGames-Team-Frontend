@@ -14,6 +14,7 @@
 import navtm from "../components/_nav/nav-tm.vue";
 import homepagetm from '../components/homepage/homepage-tm.vue';
 import errormessage from '../components/errormessage/errormessage.vue';
+import { getuser } from '../assets/js/getuser';
 
 export default {
   name: "Team",
@@ -22,6 +23,11 @@ export default {
     navtm,
     homepagetm,
     errormessage
+  },
+  async beforeCreate() {
+    await getuser.getuser((response) => {
+      console.log(response);
+    });
   },
 };
 </script>

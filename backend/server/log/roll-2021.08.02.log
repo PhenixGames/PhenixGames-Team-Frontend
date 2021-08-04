@@ -1,0 +1,81 @@
+19:06:54.424 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:07:31.788 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:07:42.410 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:08:19.974 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:09:17.286 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:09:40.359 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:12:14.918 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:12:59.244 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:13:03.220 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:19:33.366 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:28:48.426 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:29:30.772 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:29:54.509 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:30:06.864 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:30:54.036 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:31:10.361 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:31:16.853 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:32:05.225 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:32:12.686 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:32:35.978 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:32:47.410 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:32:55.506 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:33:06.808 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:33:14.785 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:33:37.225 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:34:48.828 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:34:58.152 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:35:09.000 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:36:45.234 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:38:05.115 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:40:21.243 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:42:20.667 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:42:28.192 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:43:22.554 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:44:37.088 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:44:39.142 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:45:16.740 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+19:45:37.999 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:21:13.742 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:21:16.389 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+20:23:58.442 ERROR Error Request JSON /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getlang.js : Error: socket hang up 
+22:31:43.319 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+22:34:17.107 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 
+22:40:40.756 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:41:25.319 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.ENOENT: no such file or directory, open './de_DE/de_DE.json'
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"./de_DE/de_DE.json"}
+Error: ENOENT: no such file or directory, open './de_DE/de_DE.json' 
+22:41:48.077 WARN  /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.ENOENT: no such file or directory, open './de_DE/de_DE.json'
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"./de_DE/de_DE.json"}
+Error: ENOENT: no such file or directory, open './de_DE/de_DE.json' 
+22:41:59.454 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.ENOENT: no such file or directory, open './de_DE/de_DE.json'
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"./de_DE/de_DE.json"}
+Error: ENOENT: no such file or directory, open './de_DE/de_DE.json' 
+22:42:24.541 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.ENOENT: no such file or directory, open './de_DE/de_DE.json'
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"./de_DE/de_DE.json"}
+Error: ENOENT: no such file or directory, open './de_DE/de_DE.json' 
+22:42:28.815 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.ENOENT: no such file or directory, open './de_DE/de_DE.json'
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"./de_DE/de_DE.json"}
+Error: ENOENT: no such file or directory, open './de_DE/de_DE.json' 
+22:42:45.664 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.ENOENT: no such file or directory, open 'de_DE/de_DE.json'
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"de_DE/de_DE.json"}
+Error: ENOENT: no such file or directory, open 'de_DE/de_DE.json' 
+22:42:54.450 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.ENOENT: no such file or directory, open './de_DE/de_DE.json'
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"./de_DE/de_DE.json"}
+Error: ENOENT: no such file or directory, open './de_DE/de_DE.json' 
+22:43:10.529 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.ENOENT: no such file or directory, open './de_DE/de_DE.json'
+{"errno":-2,"code":"ENOENT","syscall":"open","path":"./de_DE/de_DE.json"}
+Error: ENOENT: no such file or directory, open './de_DE/de_DE.json' 
+22:44:00.621 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:44:07.967 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file.Error: ENOENT: no such file or directory, open './de_DE/de_DE.json' 
+22:44:16.290 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:44:52.835 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:45:06.274 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:45:38.092 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:45:51.459 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:46:06.628 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:47:08.057 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:47:29.789 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:49:51.818 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+22:50:35.526 ERROR /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/config/lang/getLang.js ./de_DE/de_DE.json couldnt read file. 
+23:09:17.839 INFO  /api/team/getuser connected with IP: ::ffff:192.168.1.200 

@@ -1,4 +1,4 @@
-import team_de_DE from '../config/txt/translation/team_de_DE.json';
+import team_de_DE from '../config/txt/translation/de_DE.json';
 
 const gettmlang = {
     gettmlang: () => {

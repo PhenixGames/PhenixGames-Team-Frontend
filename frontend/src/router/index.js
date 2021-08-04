@@ -3,12 +3,12 @@ import {createRouter, createWebHistory} from 'vue-router';
 
 const routes = [
     {
-        path: teamconfig.routing.root + teamconfig.routing.home.route,
+        path: teamconfig.routing.root.route + teamconfig.routing.home.route,
         name: teamconfig.routing.home.name,
         component: () => import ('../views/Team-home.vue')
     },
     {
-        path: teamconfig.routing.root + teamconfig.routing.signin.route,
+        path: teamconfig.routing.root.route + teamconfig.routing.signin.route,
         name: teamconfig.routing.signin.name,
         component: () => import ('../views/login/Team-login.vue')
     }

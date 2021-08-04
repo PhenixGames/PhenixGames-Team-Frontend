@@ -1,5 +1,9 @@
 @import url('homepage-tm-mobile.css');
 
+body {
+    margin: 0;
+}
+
 .startseite_body  {
     width: 82%;
     float: left;

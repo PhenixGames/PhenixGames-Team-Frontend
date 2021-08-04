@@ -1,0 +1,91 @@
+00:39:13.421 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+00:42:52.569 ERROR failed to select data ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE teamid = '12345' AND password = '123'' at line 1
+{"code":"ER_PARSE_ERROR","errno":1064,"sqlMessage":"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE teamid = '12345' AND password = '123'' at line 1","sqlState":"42000","index":0,"sql":"SELECT teamid, password WHERE teamid = '12345' AND password = '123'"}
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE teamid = '12345' AND password = '123'' at line 1
+    at Query.Sequence._packetToError (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:198:13)
+    at addChunk (_stream_readable.js:288:12)
+    --------------------
+    at Protocol._enqueue (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Connection.query (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/mysql/lib/Connection.js:198:25)
+    at Object.signIn (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/api/team/signin/team-signin.js:33:14)
+    at app.post (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/server/route/route.js:21:25)
+    at Layer.handle [as handle_request] (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/var/www/html/development/PhenixGames/unstable/NODE/PhenixGames-Team/backend/node_modules/express/lib/router/index.js:335:12) 
+01:03:25.476 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:04:00.162 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:04:19.247 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:04:36.399 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:04:54.554 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:05:10.328 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:05:21.364 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:05:33.546 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:05:45.333 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:06:10.480 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:06:21.922 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:06:39.404 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:07:05.082 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:07:16.713 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:07:30.853 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:08:52.195 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:09:05.230 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:09:12.671 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:09:13.712 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:09:19.342 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:09:36.574 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:09:57.856 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:10:42.840 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:11:03.698 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:11:17.709 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:11:20.743 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:11:26.244 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:13:13.247 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:13:49.542 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:14:01.093 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:14:21.244 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:14:30.811 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:19:32.310 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:19:42.358 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:19:50.507 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:03.895 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:07.896 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:14.864 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:22.993 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:36.220 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:38.421 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:45.551 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:52.088 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:20:57.783 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:21:04.047 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:23:13.114 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:25:13.374 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:29:58.369 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:30:42.355 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:30:54.075 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:31:54.420 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:32:03.156 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:33:00.068 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:36:49.823 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:51:42.033 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:53:10.549 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:53:30.599 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:53:42.027 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:54:10.817 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:54:19.180 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:54:52.621 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:55:00.095 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:56:53.177 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:57:05.990 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:57:51.178 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 
+01:58:04.377 INFO  /api/team/getuser connected Team with IP: ::ffff:192.168.1.200 

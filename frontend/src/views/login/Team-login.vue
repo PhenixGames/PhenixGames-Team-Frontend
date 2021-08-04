@@ -59,13 +59,18 @@
 import { checkForm } from "../../assets/js/login/checkForm";
 import { tmlogin } from "../../assets/js/login/team-login";
 import { getuser } from '../../assets/js/getuser';
+import { getConfig } from '../../assets/js/config/getConfig';
+const config = getConfig.getConfig()
+
 export default {
   name: "team Login",
-  data: () => ({
-    errors: [],
-    teamid: "",
-    password: "",
-  }),
+  data: () => {
+    return {
+      errors: [],
+      teamid: "",
+      password: "",
+    }
+  },
   async beforeCreate() {
     getuser.getuser((response) => {
       console.log(response);
@@ -78,8 +83,13 @@ export default {
       let check = checkForm.checkForm(this.teamid, this.password);
       this.errors.push(check);
       if (check) return;
-      tmlogin.tmlogin((response) => {
-        console.log(response);
+      tmlogin.tmlogin(this.teamid, this.password, (response) => {
+        if(response.data == true) {
+          this.$router.push({path: config.routing.root.route});
+          return;
+        }else {
+          this.errors.push(response.data);
+        }
       });
     },
   },
