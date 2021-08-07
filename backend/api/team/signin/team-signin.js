@@ -21,7 +21,7 @@ const teamSignin = {
         }
     },
 
-    signIn: (response, teamid, password, cb) => {
+    signIn: (req, response, teamid, password, cb) => {
         conn.query(`SELECT teamid, password FROM team_login WHERE teamid = ${conn.escape(teamid)}`, (err, res) => {
             if (err) {
                 return cb(lang.validation.signin.Nf);
@@ -33,6 +33,11 @@ const teamSignin = {
             dbpassword = res[0].password
 
             teamSignin.checkPwd(response, password, dbpassword, dbteamid, (results) => {
+                if(results) {
+                    log.info('User logged in', req.ip);
+                }else {
+                    log.info('User failed signin');
+                }
                 return cb(results);
             });
         });
