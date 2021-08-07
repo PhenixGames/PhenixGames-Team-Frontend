@@ -35,12 +35,10 @@ module.exports = (app) => {
             send();
         });
         function send() {
-            console.log(obj)
             if (!obj) {
                 res.sendStatus(Status.STATUS_NO_CONTENT);
                 return;
             }
-
             res.status(Status.STATUS_OK).send(obj);
         }
     });
