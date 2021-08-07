@@ -6,11 +6,11 @@ const {getusercookie} = require("./getusercookie");
 const getuser = { /**
      * Select data from the database and send it to the frontend
      *  
-     * @param boolean secure -> true = frontend | false = backend
+     * @param boolean isFrontedRequest -> true = frontend | false = backend
      * @param string db Select database
      * @return array cb
      */
-    selectlogindata(req, secure, cb) {
+    getUser(req, isFrontedRequest, cb) {
         var teamid;
         var authkey;
         try {
@@ -21,28 +21,32 @@ const getuser = { /**
         } catch (err) {
             teamid = false;
         }
-        console.log(teamid)
         if (teamid) {
-            conn.query(`SELECT * from team_login where teamid = ?`, teamid, (err, result, fields) => {
-                if (err) {
-                    log.warn(lang.errors.database.err, err)
-                    return false;
-                }
-
-                bcryptjs.compare(result[0].authkey, authkey, async (err, bres) => {
+            try {
+                conn.query(`SELECT * from team_login where teamid = ?`, teamid, (err, result, fields) => {
                     if (err) {
-                        log.info(__filename, err)
-                        return cb(false);
+                        log.warn(lang.errors.database.err, err)
+                        return false;
                     }
-                    if (bres) {
-                        if (secure) {
-                            return cb({'teamid': result[0].teamid});
-                        } else {
-                            return cb(result[0]);
+
+                    bcryptjs.compare(result[0].authkey, authkey, async (err, bres) => {
+                        if (err) {
+                            log.info(__filename, err)
+                            return cb(false);
                         }
-                    }
+                        if (bres) {
+                            if (isFrontedRequest) {
+                                return cb({'teamid': result[0].teamid});
+                            } else {
+                                return cb(result[0]);
+                            }
+                        }
+                    });
                 });
-            });
+            } catch (err) {
+                log.warn(__filename, err);
+                return cb(false);
+            }
         } else {
             return cb(false);
         }
