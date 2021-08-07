@@ -73,7 +73,10 @@ export default {
   },
   async beforeCreate() {
     getuser.getuser((response) => {
-      console.log(response);
+      if(response.data) {
+        this.$router.push(config.routing.root.route + config.routing.home.route);
+        return;
+      }
     });
   },
   methods: {
