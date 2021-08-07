@@ -2,9 +2,8 @@ const lang = require("../../../server/config/lang/getLang").getLang();
 const bcryptjs = require("bcryptjs");
 const {conn} = require("../../../server/db/db");
 const log = require("../../../_log");
-const { getusercookie } = require("./getusercookie");
-const getuser = {
-    /**
+const {getusercookie} = require("./getusercookie");
+const getuser = { /**
      * Select data from the database and send it to the frontend
      *  
      * @param boolean secure -> true = frontend | false = backend
@@ -19,37 +18,35 @@ const getuser = {
                 authkey = result.pg_authkey;
                 teamid = result.pg_teamid;
             });
-        } catch(err) {
+        } catch (err) {
             teamid = false;
         }
         console.log(teamid)
-        if(teamid) {
-            conn.query(`SELECT * from team_login where teamid = ?`, teamid,  (err, result, fields) => {
+        if (teamid) {
+            conn.query(`SELECT * from team_login where teamid = ?`, teamid, (err, result, fields) => {
                 if (err) {
                     log.warn(lang.errors.database.err, err)
                     return false;
                 }
-                console.log(authkey + ' ' + result[0].authkey)
-                bcryptjs.compare(authkey, result[0].authkey, async (err, res) => {
-                    if(err) {
+
+                bcryptjs.compare(result[0].authkey, authkey, async (err, bres) => {
+                    if (err) {
                         log.info(__filename, err)
                         return cb(false);
                     }
-                    if(res) {
-                        if(secure) {
-                            return cb({
-                                'teamid': result[0].teamid,
-                            });
-                        }else {
+                    if (bres) {
+                        if (secure) {
+                            return cb({'teamid': result[0].teamid});
+                        } else {
                             return cb(result[0]);
                         }
                     }
                 });
             });
-        }else {
+        } else {
             return cb(false);
         }
-    },
+    }
 }
 
 module.exports = getuser;
