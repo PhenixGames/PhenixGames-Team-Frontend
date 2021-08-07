@@ -1,5 +1,5 @@
 <template>
-  <navtm />
+  <navtm :name="name"/>
   <homepagetm />
   <errormessage />
 
