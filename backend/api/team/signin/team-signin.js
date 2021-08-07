@@ -33,7 +33,6 @@ const teamSignin = {
             dbpassword = res[0].password
 
             teamSignin.checkPwd(response, password, dbpassword, dbteamid, (results) => {
-                console.log(results);
                 return cb(results);
             });
         });
