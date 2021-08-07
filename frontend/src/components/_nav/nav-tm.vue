@@ -51,10 +51,8 @@
     </div>
 
     <div class="nav_bottom">
-        <router-link :to="{path: routes.logout}" class="logoutbtn" id=""><div class="logout absolute" id="logout">
-            <span><img src="https://img.icons8.com/color/48/000000/exit.png" /></span>
-        </div></router-link>
-        <div class="mode_switcher">
+
+        <div class="mode_switcher left">
             <label class="switch">
                 <input type="checkbox" id="darkmode-nav-on-off">
                 <span class="slider round"></span>
@@ -64,9 +62,11 @@
                         src="https://img.icons8.com/color/48/000000/full-moon.png" /></span>
             </label>
         </div>
-        <div class="copyright">
-            <span>&copy; PhenixGames.de</span>
-        </div>
+
+        <router-link :to="{path: routes.logout}" class="logoutbtn" id=""><div class="logout left" id="logout">
+            <span><img src="https://img.icons8.com/color/48/000000/exit.png" /></span>
+        </div></router-link>
+
     </div>
 </nav>
 <div class="infobar white textright">
