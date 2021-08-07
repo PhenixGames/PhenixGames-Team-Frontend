@@ -1,7 +1,0 @@
-{
-        "database": {
-            "err": "Database error: ",
-            "warn": "Database warn: ",
-            "info0": "Database info: "
-        }
-}
