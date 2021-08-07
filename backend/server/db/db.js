@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const nconf = require('nconf');
+const log = require('../../_log');
 
 const conn = mysql.createConnection({
     host: nconf.get('database:host'),
@@ -11,9 +12,10 @@ const conn = mysql.createConnection({
 
 conn.connect((err) => {
     if(err) {
+        log.error(`Connected to the MySQL Databaase / Server "${nconf.get('database:host')}"`);
         return console.error('DATABASE ERROR: ' + err.message);
     }
-    console.warn(`Connected to the MySQL Databaase / Server "${nconf.get('database:host')}"`);
+    log.info(`Connected to the MySQL Databaase / Server "${nconf.get('database:host')}"`);
 });
 
 
