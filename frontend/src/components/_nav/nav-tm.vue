@@ -51,9 +51,9 @@
     </div>
 
     <div class="nav_bottom">
-        <a href="#" class="logoutbtn" id=""><div class="logout absolute" id="logout">
+        <router-link :to="{path: routes.logout}" class="logoutbtn" id=""><div class="logout absolute" id="logout">
             <span><img src="https://img.icons8.com/color/48/000000/exit.png" /></span>
-        </div></a>
+        </div></router-link>
         <div class="mode_switcher">
             <label class="switch">
                 <input type="checkbox" id="darkmode-nav-on-off">
@@ -80,7 +80,19 @@
 </style>
 
 <script>
+import { getConfig } from '../../assets/js/config/getConfig'
+const config = getConfig.getConfig();
+const root = config.routing.root.route
+
 export default {
-    name: 'Team Navigation'
+    data: () => {
+        return {
+            name: 'Team Navigation',
+            routes: {
+                home: root + config.routing.home.route,
+                logout: root + config.routing.logout.route
+            }
+        }
+    }
 }
 </script>
