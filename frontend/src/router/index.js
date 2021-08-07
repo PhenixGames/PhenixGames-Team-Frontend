@@ -11,6 +11,11 @@ const routes = [
         path: teamconfig.routing.root.route + teamconfig.routing.signin.route,
         name: teamconfig.routing.signin.name,
         component: () => import ('../views/login/Team-login.vue')
+    },
+    {
+        path: teamconfig.routing.root.route + teamconfig.routing.logout.route,
+        name: teamconfig.routing.logout.name,
+        component: () => import ('../views/login/Team-logout.vue')
     }
 ]
 
