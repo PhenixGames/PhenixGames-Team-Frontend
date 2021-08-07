@@ -5,8 +5,9 @@ export const getuser = {
     getuser: (cb) => {
         axios.get("/api/team/getuser", {
             headers: {
+                "Accept": "application/json",
                 "Content-type": "application/json",
-                "Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
+                //"Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
