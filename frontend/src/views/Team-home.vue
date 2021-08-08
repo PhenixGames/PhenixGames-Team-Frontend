@@ -1,5 +1,5 @@
 <template>
-  <navtm />
+  <navtm :username="username" :teamid="teamid"/>
   <homepagetm />
   <errormessage />
 
@@ -15,10 +15,18 @@ import navtm from "../components/_nav/nav-tm.vue";
 import homepagetm from '../components/homepage/homepage-tm.vue';
 import errormessage from '../components/errormessage/errormessage.vue';
 import { getuser } from '../assets/js/getuser';
+import { getConfig } from '../assets/js/config/getConfig';
+
+const config = getConfig.getConfig();
 
 export default {
   name: "Team",
-  data: () => {},
+  data: () => {
+    return {
+      username: '',
+      teamid: ''
+    }
+  },
   components: {
     navtm,
     homepagetm,
@@ -26,7 +34,12 @@ export default {
   },
   async beforeCreate() {
     await getuser.getuser((response) => {
-      console.log(response);
+      if(!response.data) {
+        this.$router.push(config.routing.root.route + config.routing.signin.route);
+        return;
+      }
+      this.teamid = response.data.teamid
+      this.username = response.data.username
     });
   },
 };

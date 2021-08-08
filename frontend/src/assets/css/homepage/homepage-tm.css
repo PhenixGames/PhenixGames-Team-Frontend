@@ -2,11 +2,16 @@
 
 body {
     margin: 0;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
 .startseite_body  {
-    width: 82%;
-    float: left;
+    width: 83%;
+    max-height: 95vh;
+    float: right;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .startseite_section header {
