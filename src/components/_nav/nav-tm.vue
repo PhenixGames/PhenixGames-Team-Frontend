@@ -1,4 +1,8 @@
 <template>
+    <input type="checkbox" style="display-none" id="mobile_menu_checkbox" class="display-none mobile_menu_checkbox" />
+    <label for="mobile_menu_checkbox">
+        <img src="../../assets/img/icons/burger_menu.svg"  class="burger_mobile_menu cursor-pointer"/>
+    </label>
     <nav class="left white">
     <div class="navheader">
         <img src="../../assets/img/profile/default_avatar.png" class="profilbild" />

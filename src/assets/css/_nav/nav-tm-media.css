@@ -5,19 +5,84 @@
     }
 }
 
+@media only screen and (max-width: 1151px) {
+    nav {
+        position: absolute;
+        left: -350px;
+        width: 30% !important;
+    }
+    #mobile_menu_checkbox:checked ~ nav{
+        left: 0 !important;
+    }
+
+    #mobile_menu_checkbox:checked ~ label{
+        left: 31% !important;
+    }
+    #mobile_menu_checkbox ~ label {
+        position: absolute;
+        top: 1px;
+        left: 10px;
+    }
+}
+
+@media only screen and (min-width: 1152px) {
+    .burger_mobile_menu {
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     nav {
-        left: -250px;
+        left: -230px;
     }
     .infobar {
-        width: 103% !important;
-        left: 0 !important;
-        z-index: -1;
+        padding: 2px 10px !important;
     }
     .infobar span:first-child div{
         z-index: 2 !important;
     }
     .startseite_tab_select div {
         width: 100%;
+    }
+}
+
+@media only screen and (max-width: 655px) {
+    #mobile_menu_checkbox:checked ~ nav{
+        width: 50% !important;
+    }
+
+    #mobile_menu_checkbox:checked ~ label{
+        left: 51% !important;
+    }
+    #mobile_menu_checkbox:checked ~ .infobar span {
+        display: none;  
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .infobar {
+        font-size: 1.4em !important;
+        padding: 7px 10px !important;
+    }
+    #mobile_menu_checkbox:checked ~ nav{
+        width: 80% !important;
+    }
+
+    #mobile_menu_checkbox:checked ~ label{
+        left: 81% !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #mobile_menu_checkbox:checked ~ nav{
+        width: 100% !important;
+    }
+
+    #mobile_menu_checkbox:checked ~ label{
+        left: 81% !important;
+        z-index: 9;
+    }
+    .infobar span {
+        display: none;
     }
 }

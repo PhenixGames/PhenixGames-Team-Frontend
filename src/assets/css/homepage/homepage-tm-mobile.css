@@ -1,12 +1,6 @@
 @media only screen and (max-width: 1151px) {
-    .clock {
-        width: auto !important;
-        float: left !important;
-    }
-    .clock div {
-        display: inline-flex;
-        width: 50%;
-        float: left !important;
+    .startseite_body {
+        width: 100% !important;
     }
 }
 
@@ -15,9 +9,6 @@
         display: inline-block !important;
     }
     body > main > section > main > header div {
-        width: 100% !important;
-    }
-    .teaminfo {
         width: 100% !important;
     }
     .tablelist {
@@ -32,13 +23,28 @@
 }
 
 @media only screen and (max-width: 768px) {
-    body > main {
-        margin: 50px 50px 0 0 !important;
+    .startseite_section header {
+        display: block !important;
+    }
+    .startseite_section header div:last-child {
+        width: 80%;
+    }
+    .startseite_tab_select div {
+        width: auto !important;
+    }
+    .tab {
+        display: block;
     }
     .pl_button_wrapper {
        float: left !important;
        display: block;
        margin: 0 50%;
+    }
+}
+
+@media only screen and (max-width: 536px) {
+    .tab-33 {
+        width: 80%;
     }
 }
 
@@ -53,9 +59,6 @@
 
 @media only screen and (max-width: 425px) {
     main section header div{
-        width: 100%;
-    }
-    .clock div {
         width: 100%;
     }
 }
