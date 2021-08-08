@@ -1,0 +1,6 @@
+@import url('./player-tm-media.css');
+
+.player_section {
+    width: 83%;
+    float: left;
+}
