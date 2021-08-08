@@ -3,8 +3,8 @@
     <div class="navheader">
         <img src="../../assets/img/profile/default_avatar.png" class="profilbild" />
         <div class="profilname center display-grid">
-            <span id="teamname">Test</span>
-            <span id="teamid">Team-ID: 123</span>
+            <span id="teamname">{{username}}</span>
+            <span id="teamid">Team-ID: {{teamid}}</span>
         </div>
     </div>
     <div class="nav_main">
@@ -70,7 +70,7 @@
     </div>
 </nav>
 <div class="infobar white textright">
-    <span>21.01.2021 16:30</span>
+    <span>{{currentTime}}</span>
 </div>
 
 </template>
@@ -91,8 +91,33 @@ export default {
             routes: {
                 home: root + config.routing.home.route,
                 logout: root + config.routing.logout.route
-            }
+            },
+            currentTime: ''
         }
-    }
+    },
+    mounted() {
+        setInterval(() => {
+            this.setTime()    
+        }, 1000);  
+    },
+    methods: {
+        setTime() {
+                    const current = new Date();
+                    const months = ((current.getMonth()+1) < 10) ? '0' + (current.getMonth()+1) : current.getMonth()+1;
+                    const days = (current.getDate() < 10) ? '0' + current.getDate() : current.getDate();
+                    const hrs = (current.getHours() < 10) ? '0' + current.getHours() : current.getHours();
+                    const mins = (current.getMinutes() < 10) ? '0' + current.getMinutes() : current.getMinutes();
+                    const secs = (current.getSeconds() < 10) ? '0' + current.getSeconds(): current.getSeconds();
+
+                    const date = current.getFullYear()+'.'+months+'.'+days;
+                    const time = hrs + ":" + mins + ":" + secs;
+                    const dateTime = date +' '+ time;
+                    this.currentTime = dateTime;
+        }
+    },
+    props: [
+        "username",
+        "teamid"
+    ]
 }
 </script>
