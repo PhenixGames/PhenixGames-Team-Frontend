@@ -7,8 +7,9 @@
     <div class="navheader">
         <img src="../../assets/img/profile/default_avatar.png" class="profilbild" />
         <div class="profilname center display-grid">
-            <span id="teamname">{{username}}</span>
-            <span id="teamid">Team-ID: {{teamid}}</span>
+            <span id="teamname" title="Username"><strong>{{username}}</strong></span>
+            <span class="tiny bold" title="Social Club Name">({{scname}})</span>
+            <span id="teamid">Team-ID: <strong>{{teamid}}</strong></span>
         </div>
     </div>
     <div class="nav_main">
@@ -126,7 +127,8 @@ export default {
     },
     props: [
         "username",
-        "teamid"
+        "teamid",
+        "scname"
     ]
 }
 </script>

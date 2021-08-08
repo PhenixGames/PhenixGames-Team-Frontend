@@ -1,5 +1,5 @@
 <template>
-  <navtm :username="username" :teamid="teamid"/>
+  <navtm :username="username" :teamid="teamid" :scname="scname"/>
   <homepagetm />
   <errormessage />
 
@@ -23,7 +23,8 @@ export default {
   data: () => {
     return {
       username: '',
-      teamid: ''
+      teamid: '',
+      scname: ''
     }
   },
   components: {
@@ -39,6 +40,7 @@ export default {
       }
       this.teamid = response.data.teamid
       this.username = response.data.username
+      this.scname = response.data.scname
     });
   },
 };
