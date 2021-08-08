@@ -1,5 +1,5 @@
 <template>
-  <navtm :name="name"/>
+  <navtm :username="username" :teamid="teamid"/>
   <homepagetm />
   <errormessage />
 
@@ -21,7 +21,12 @@ const config = getConfig.getConfig();
 
 export default {
   name: "Team",
-  data: () => {},
+  data: () => {
+    return {
+      username: '',
+      teamid: ''
+    }
+  },
   components: {
     navtm,
     homepagetm,
@@ -33,6 +38,8 @@ export default {
         this.$router.push(config.routing.root.route + config.routing.signin.route);
         return;
       }
+      this.teamid = response.data.teamid
+      this.username = response.data.username
     });
   },
 };
