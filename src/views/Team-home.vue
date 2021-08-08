@@ -33,7 +33,7 @@ export default {
   },
   async beforeCreate() {
     await getuser.getuser((response) => {
-      if(!response.data) {
+      if(!response.data || response.data == '') {
         this.$router.push(config.routing.root.route + config.routing.signin.route);
         return;
       }
