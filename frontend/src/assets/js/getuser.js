@@ -1,5 +1,4 @@
 import axios from 'axios';
-import tmconfig from '../../../config-team.json';
 
 export const getuser = {
     getuser: (cb) => {
@@ -15,6 +14,6 @@ export const getuser = {
             cb(response);
         }).catch((err) => {
             cb(err);
-        })
-    }
+        });
+    },
 }
