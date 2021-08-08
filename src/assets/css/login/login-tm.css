@@ -2,8 +2,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 150px auto;
-    background: none;
     overflow-y: hidden;
 }
 .bg {
@@ -15,6 +13,7 @@ body {
 }
 
 .login {
+    margin: 150px auto;
     background: rgba(27, 27, 27, 0.918);
     padding: 50px;
     border-radius: 20px;

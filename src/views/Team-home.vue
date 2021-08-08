@@ -6,7 +6,6 @@
 </template>
 
 <style scoped>
-@import url("../assets/css/root-tm.css");
 @import url("../assets/css/homepage/homepage-tm.css");
 </style>
 

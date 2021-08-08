@@ -1,16 +1,42 @@
 {
+    "frontend":  {
+       "baseURL": "/"
+    },
     "routing": {
         "root": {
-            "route": "/teambereich",
+            "route": "/team",
             "name": "Root"
         },
-        "login": {
-            "route": "/login",
-            "name": "Teambereich Login"
+        "signin": {
+            "route": "/signin",
+            "name": "Team Login"
+        },
+        "logout": {
+            "route": "/logout"
         },
         "home": {
             "route": "/",
-            "name": "Teambereich Home"
+            "name": "Teamh Home"
+        },
+        "game": {
+            "player": {
+                "viewplayer": {
+                    "route": "/player/view",
+                    "name": "View Player"
+                }
+            },
+            "vehicle": {
+                "viewvehicle": {
+                    "route": "/vehicle/view",
+                    "name": "View Vehicle"
+                }
+            },
+            "forum": {
+                "viewforum": {
+                    "route": "/forum/view",
+                    "name": "View Forum"
+                }
+            }
         }
     }
 }

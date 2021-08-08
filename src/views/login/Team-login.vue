@@ -51,7 +51,6 @@
 </template>
 
 <style scoped>
-@import url("../../assets/css/root-tm.css");
 @import url("../../assets/css/login/login-tm.css");
 </style>
 
