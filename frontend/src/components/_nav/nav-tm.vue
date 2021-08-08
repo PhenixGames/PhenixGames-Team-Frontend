@@ -8,20 +8,20 @@
         </div>
     </div>
     <div class="nav_main">
-        <a href="index.php" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
+        <router-link :to="{path: routes.home}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
             <span>Startseite</span><img src="https://img.icons8.com/cute-clipart/50/000000/home.png" />
-        </div></a>
-        <a href="player.php" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
+        </div></router-link>
+        <router-link :to="{path: routes.games.player}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
             <span>Spieler</span><img src="https://img.icons8.com/color/48/000000/player-male.png" />
-        </div></a>
+        </div></router-link>
 
-        <a href="vehicles.php" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
+        <router-link :to="{path: routes.games.vehicle}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
             <span>Fahrzeuge</span><img src="https://img.icons8.com/bubbles/50/000000/car.png" />
-        </div></a>
+        </div></router-link>
 
-        <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
+        <router-link :to="{path: routes.games.forum}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
             <span>Forum</span><img src="https://img.icons8.com/bubbles/50/000000/myspace.png" />
-        </div></a>
+        </div></router-link>
 
         <a href="bewerbungen.php" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
             <span>Bewerbungen</span><img src="https://img.icons8.com/ultraviolet/40/000000/gpx.png" />
@@ -90,7 +90,12 @@ export default {
             name: 'Team Navigation',
             routes: {
                 home: root + config.routing.home.route,
-                logout: root + config.routing.logout.route
+                logout: root + config.routing.logout.route,
+                games: {
+                    player: root + config.routing.game.player.viewplayer.route,
+                    vehicle: root + config.routing.game.vehicle.viewvehicle.route,
+                    forum: root + config.routing.game.forum.viewforum.route
+                }
             },
             currentTime: ''
         }
@@ -109,7 +114,7 @@ export default {
                     const mins = (current.getMinutes() < 10) ? '0' + current.getMinutes() : current.getMinutes();
                     const secs = (current.getSeconds() < 10) ? '0' + current.getSeconds(): current.getSeconds();
 
-                    const date = current.getFullYear()+'.'+months+'.'+days;
+                    const date = days + '.' + months + '.' + current.getFullYear();
                     const time = hrs + ":" + mins + ":" + secs;
                     const dateTime = date +' '+ time;
                     this.currentTime = dateTime;

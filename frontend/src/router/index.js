@@ -16,6 +16,21 @@ const routes = [
         path: teamconfig.routing.root.route + teamconfig.routing.logout.route,
         name: teamconfig.routing.logout.name,
         component: () => import ('../views/login/Team-logout.vue')
+    },
+    {
+        path: teamconfig.routing.root.route + teamconfig.routing.game.player.viewplayer.route,
+        name: teamconfig.routing.game.player.name,
+        component: () => import ('../views/Team-home.vue')
+    },
+    {
+        path: teamconfig.routing.root.route + teamconfig.routing.game.vehicle.viewvehicle.route,
+        name: teamconfig.routing.game.vehicle.name,
+        component: () => import ('../views/Team-home.vue')
+    },
+    {
+        path: teamconfig.routing.root.route + teamconfig.routing.game.forum.viewforum.route,
+        name: teamconfig.routing.game.forum.name,
+        component: () => import ('../views/Team-home.vue')
     }
 ]
 
