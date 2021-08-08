@@ -20,7 +20,7 @@ const routes = [
     {
         path: teamconfig.routing.root.route + teamconfig.routing.game.player.viewplayer.route,
         name: teamconfig.routing.game.player.name,
-        component: () => import ('../views/Team-home.vue')
+        component: () => import ('../views/Team-player.vue')
     },
     {
         path: teamconfig.routing.root.route + teamconfig.routing.game.vehicle.viewvehicle.route,
