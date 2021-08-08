@@ -85,12 +85,19 @@ const teamSignin = {
     },
 
     insertDBAuthkey: async (autkey, teamid, cb) => {
-        await conn.query('UPDATE team_login SET authkey = ? WHERE teamid = ?', [autkey, teamid], (err, results) => {
+        conn.query('UPDATE team_login SET authkey = ? WHERE teamid = ?', [autkey, teamid], (err, results) => {
             if(err) {
                 log.info(__filename, err);
                 return cb(false);
             }
-            return cb(true);
+            conn.query('UPDATE team_user SET authkey = ? WHERE teamid = ?', [autkey, teamid], (err, results)=> {
+                if(err) {
+                    log.info(__filename, err);
+                    return cb(false);
+                }
+                return cb(true);   
+            })
+            
         });
     }
 };
