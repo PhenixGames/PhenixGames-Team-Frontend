@@ -19,16 +19,18 @@ const getuser = { /**
                 teamid = result.pg_teamid;
             });
         } catch (err) {
-            teamid = false;
+            log.warn(__filename, err);
+            return cb(false);
         }
-        if (teamid) {
+        if (teamid && authkey) {
             try {
-                conn.query(`SELECT * from team_login where teamid = ?`, teamid, (err, result, fields) => {
+                conn.query(`SELECT * from team_user where teamid = ?`, teamid, (err, result, fields) => {
                     if (err) {
+                        
                         log.warn(lang.errors.database.err, err)
                         return false;
                     }
-
+                    
                     bcryptjs.compare(result[0].authkey, authkey, async (err, bres) => {
                         if (err) {
                             log.info(__filename, err)
@@ -36,7 +38,14 @@ const getuser = { /**
                         }
                         if (bres) {
                             if (isFrontedRequest) {
-                                return cb({'teamid': result[0].teamid});
+                                return cb({
+                                    'teamid': result[0].teamid,
+                                    'username': result[0].username,
+                                    'rank': result[0].rank,
+                                    'banned_id': result[0].banned_id,
+                                    'pid': result[0].pid,
+                                    'scname': result[0].scname
+                                });
                             } else {
                                 return cb(result[0]);
                             }
@@ -44,6 +53,7 @@ const getuser = { /**
                     });
                 });
             } catch (err) {
+                
                 log.warn(__filename, err);
                 return cb(false);
             }
