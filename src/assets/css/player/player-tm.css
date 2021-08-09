@@ -110,3 +110,11 @@
 .not_banned{
     color: var(--green);
 }
+
+.playerlist table {
+    border-collapse: collapse;
+}
+
+.player_selected {
+    background: var(--violet);
+}
