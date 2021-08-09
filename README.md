@@ -1,4 +1,4 @@
-# frontend
+# PhenixGames Team Frontend
 
 ## Project setup
 ```
