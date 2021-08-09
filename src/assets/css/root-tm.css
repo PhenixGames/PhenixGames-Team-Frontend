@@ -139,33 +139,6 @@ body>main {
     overflow-x: auto;
 }
 
-/*! BUTTONS */
-.pl_button_wrapper {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    cursor: not-allowed;
-}
-
-.pl_button {
-    box-shadow: var(--boxshadow);
-    height: 53px;
-    width: 250px;
-    margin: 19px 0;
-    background: #23262C;
-    border-radius: 10px;
-    pointer-events: none;
-    opacity: 0.4;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.pl_button:hover {
-    transform: translateY(-2px);
-}
-
 .on_off {
     height: 50px;
     width: 50px;
