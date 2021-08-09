@@ -19,7 +19,7 @@ export default {
         return {
             username: '',
             teamid: '',
-            scname: ''
+            scname: '',
         }
     },
     components: {
@@ -29,9 +29,7 @@ export default {
     async beforeCreate() {
         await getuser.getuser((response) => {
         if (!response.data || response.data == "") {
-            this.$router.push(
-            config.routing.root.route + config.routing.signin.route
-            );
+            this.$router.push(config.routing.root.route + config.routing.signin.route);
             return;
         }
         this.teamid = response.data.teamid;
