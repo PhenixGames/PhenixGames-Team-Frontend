@@ -39,11 +39,11 @@
                     </thead>
                     <tbody>
                         <tr v-for="item in player" @click="selectPlayer(item.pid)" :class="(selectedPid === item.pid) ? 'player_selected' : ''">
-                            <th class="user-select-none">Offline</th>
+                            <th :class="(item.online) ? 'user-select-none online' : 'user-select-none offline'">{{(item.online) ? 'Online' : 'Offline'}}</th>
                             <th>{{item.pid}}</th>
-                            <th translate="no" :class="(item.VIP)? 'vip' : '' ">{{item.Rkg_name}}</th>
+                            <th translate="no" :class="(item.VIP) ? 'vip' : '' ">{{item.Rkg_name}}</th>
                             <th class="user-select-none">Roleplay</th>
-                            <th class="banned"> {{item.banned}}</th>
+                            <th :class="(item.banned) ? 'banned' : 'not_banned' "> {{item.banned}}</th>
                         </tr>
                         <!-- <tr>
                             <th colspan="5">
@@ -121,9 +121,11 @@ export default {
         editP(pid, type) {
             player.editPlayer(pid, type, (response) => {
                 if(response.data) {
-                    alert(pid + ' erfolgreich geändert')
+                    alert(pid + ' erfolgreich geändert');
+                    return;
                 }
-                alert('ERROR ' + response.data)
+                alert('ERROR ' + response.data);
+                return;
             });
         }
     },

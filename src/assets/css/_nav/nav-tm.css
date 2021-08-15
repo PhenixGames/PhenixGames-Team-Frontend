@@ -85,7 +85,7 @@ nav {
     border-left: 10px solid var(--organgenav);
 }
 
-.navactive {
+.router-link-active div {
     border-left: 10px solid var(--organgenav);
 }
 
