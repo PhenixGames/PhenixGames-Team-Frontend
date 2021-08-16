@@ -1,7 +1,7 @@
 <template>
     <section class="col player_section">
         <header class="left display-flex width-100">
-            <div class="tab left center welcome">
+            <div class="tab left center site_name">
                 <span class="fsize-4 ">{{lang.words.playerlist}}</span>
             </div>
             <div style="width: 400px;">

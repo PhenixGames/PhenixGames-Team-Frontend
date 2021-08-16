@@ -2,7 +2,7 @@
     <main class="startseite_body">
     <section class="col startseite_section">
       <header>
-        <div class="tab center left welcome">
+        <div class="tab center left site_name">
           <span class="fsize-1-5">{{lang.homepage.welcome}}</span>
         </div>
       </header>
