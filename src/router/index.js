@@ -25,7 +25,7 @@ const routes = [
     {
         path: teamconfig.routing.root.route + teamconfig.routing.game.vehicle.viewvehicle.route,
         name: teamconfig.routing.game.vehicle.name,
-        component: () => import ('../views/Team-home.vue')
+        component: () => import ('../views/Team-vehicle.vue')
     },
     {
         path: teamconfig.routing.root.route + teamconfig.routing.game.forum.viewforum.route,
