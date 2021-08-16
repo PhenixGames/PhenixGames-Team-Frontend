@@ -1,11 +1,5 @@
 @import url('homepage-tm-mobile.css');
 
-body {
-    margin: 0;
-    height: 100vh;
-    overflow-y: hidden;
-}
-
 .startseite_body  {
     width: 83%;
     max-height: 95vh;

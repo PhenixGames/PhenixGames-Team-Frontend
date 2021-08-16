@@ -9,7 +9,10 @@
 body {
     background: var(--tmbg);
     margin: 0;
+    padding: 0;
     overflow-x: hidden;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
 a {
@@ -78,11 +81,6 @@ img {
     -ms-user-select: none;
 }
 
-body>main {
-    margin: 50px 0px 0 250px;
-    padding: 0 50px 0 0;
-}
-
 .tab {
     display: inline-block;
     padding: 20px 40px;
@@ -101,10 +99,14 @@ body>main {
     width: 33%;
 }
 
-.welcome {
+.site_name {
     background: var(--organgenav);
+    font-weight: 700;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
 }
-
 
 /*! POPUP */
 

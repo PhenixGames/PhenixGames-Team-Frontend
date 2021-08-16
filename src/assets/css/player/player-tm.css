@@ -3,7 +3,7 @@
 .player_section {
     width: 83%;
     max-height: 94vh;
-    overflow-y: scroll;
+    overflow-y: scroll !important;
     float: left;
     scrollbar-width: none;
 }
