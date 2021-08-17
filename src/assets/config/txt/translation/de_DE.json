@@ -86,7 +86,23 @@
                     "down": "informationen"
                 }
             }
-        }
+        },
+        "close": "Schließen",
+        "cid": "Characterid",
+        "playerinfo": "Spielerinfo",
+        "firstname": "Vorname",
+        "lastname": "Nachname",
+        "lastlocation": "Letzte Position",
+        "dimension": "Dimension",
+        "armor": "Rüstung",
+        "height": "Größe",
+        "age": "Alter",
+        "fraction": "Fraktion",
+        "pnumber": "P-Nummer",
+        "phonenumber": "Handynummer",
+        "gender": "Geschlecht",
+        "hunger": "Hunger",
+        "thirst": "Durst"
     },
     "login": {
         "error_b": "Du musst eine TeamID angeben.",
@@ -107,6 +123,8 @@
     },
     "player": {
         "morebtn": "Mehr anzeigen",
-        "lessbtn": "Weniger anzeigen"
+        "lessbtn": "Weniger anzeigen",
+        "haveCars": "Autos in besitz",
+        "playernotfound": "Keine Spieler gefunden."
     }
 }
