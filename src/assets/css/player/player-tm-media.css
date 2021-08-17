@@ -5,6 +5,10 @@
     .player_section main {
         width: 96%;
     }
+    .player_infotable {
+        width: 90% !important;
+        transform: translateX(50%) !important;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -35,6 +39,11 @@
         padding: 10px;
         text-align: left;
     }
+
+    .player_infotable {
+        width: 95% !important;
+        transform: translateX(50%) !important;
+    }
 }
 
 @media only screen and (max-width: 542px) {
@@ -44,12 +53,6 @@
     }
     .player_section > main > div:nth-child(1) a:nth-child(1){
         margin-top: 20px;
-    }
-    #showrp,
-    #showgw{
-        width: 96vw;
-        display: block !important;
-        justify-content: center;
     }
 
     .player_section > header > div {

@@ -104,5 +104,9 @@
         "forumdesc": "Gelange zum Forum",
         "homepagedesc": "Gelange zur Homepage",
         "discorddesc": "Öffne unseren Discord Server"
+    },
+    "player": {
+        "morebtn": "Mehr anzeigen",
+        "lessbtn": "Weniger anzeigen"
     }
 }
