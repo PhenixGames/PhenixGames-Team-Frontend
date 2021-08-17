@@ -33,7 +33,7 @@
                         </tr>
                         <tr v-if="!player">
                             <th colspan="4">
-                                <span class="red big bold">Keine Spieler gefunden.</span>
+                                <span class="red big bold">{{lang.player.playernotfound}}</span>
                             </th>
                         </tr>
                     </tbody>
@@ -41,17 +41,17 @@
                 <table class="player_infotable">
                     <thead>
                         <tr>
-                            <th class="text-deco-underline cursor-pointer" @click="closeMorePlayerDetails()">Close</th>
-                            <th colspan="99"><h1 class="center">Playerinfo: {{morePlayerData.firstname}} {{morePlayerData.lastname}}</h1></th>
+                            <th class="text-deco-underline cursor-pointer" @click="closeMorePlayerDetails()">{{lang.words.close}}</th>
+                            <th colspan="99"><h1 class="center">{{lang.words.playerinfo}}: {{morePlayerData.firstname}} {{morePlayerData.lastname}}</h1></th>
                         </tr>
                         <tr>
-                            <th title="Characterid">cid</th>
-                            <th>Vorname</th>
-                            <th>Nachname</th>
-                            <th>Autos in Besitz</th>
-                            <th>Last Location</th>
-                            <th>HP</th>
-                            <th>Dimension</th>
+                            <th :title="lang.words.cid">cid</th>
+                            <th>{{lang.words.firstname}}</th>
+                            <th>{{lang.words.lastname}}</th>
+                            <th>{{lang.player.haveCars}}</th>
+                            <th>{{lang.words.lastlocation}}</th>
+                            <th translate="no">HP</th>
+                            <th>{{lang.words.dimension}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,7 +65,7 @@
                             <th>{{morePlayerData.dim}}</th>
                         </tr>
                         <tr>
-                            <th colspan="99" class="cursor-pointer show_more_details" @click="showMorePlayerDetails()">Mehr anzeigen</th>
+                            <th colspan="99" class="cursor-pointer show_more_details" @click="showMorePlayerDetails()">{{lang.player.morebtn}}</th>
                         </tr>
                         <tr>
                             <th colspan="99"><div></div></th>
@@ -73,15 +73,15 @@
                     </tbody>
                     <tfoot class="">
                             <tr style="color: var(--organgenav);">
-                                <th>Armor</th>
-                                <th>Größe</th>
-                                <th>Alter</th>
-                                <th>Fraktion</th>
-                                <th>P-Nummer</th>
-                                <th>Handy Nummer</th>
-                                <th>Geschlecht</th>
-                                <th>Hunger</th>
-                                <th>Durst</th>
+                                <th>{{lang.words.armor}}</th>
+                                <th>{{lang.words.height}}</th>
+                                <th>{{lang.words.age}}</th>
+                                <th>{{lang.words.fraction}}</th>
+                                <th>{{lang.words.pnumber}}</th>
+                                <th>{{lang.words.phonenumber}}</th>
+                                <th>{{lang.words.gender}}</th>
+                                <th>{{lang.words.hunger}}</th>
+                                <th>{{lang.words.thirst}}</th>
                             </tr>
                             <tr>
                                 <th>{{morePlayerData.armor}}</th>
