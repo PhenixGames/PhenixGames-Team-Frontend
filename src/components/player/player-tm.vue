@@ -14,18 +14,6 @@
             </div>
         </header>
         <main>
-            <div>
-                <a href="#">
-                    <div class="tab center cursor-pointer " id="showrp">
-                        <span class="fsize-1-5">{{lang.words.roleplay}}</span>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="tab center cursor-no-drop " id="showgw">
-                        <span class="fsize-1-5">{{lang.words.gangwar}}</span>
-                    </div>
-                </a>
-            </div>
             <div class="tab left playerlist">
                 <table cellpadding="50" >
                     <thead class="big">
@@ -33,7 +21,6 @@
                             <th>{{lang.words.offline.up}}/{{lang.words.online.up}}</th>
                             <th>{{lang.words.playerid}}</th>
                             <th>{{lang.words.rockstarname}}</th>
-                            <th>{{lang.words.server}}</th>
                             <th>{{lang.words.status}}</th>
                         </tr>
                     </thead>
@@ -42,15 +29,72 @@
                             <th :class="(item.online) ? 'user-select-none online' : 'user-select-none offline'">{{(item.online) ? 'Online' : 'Offline'}}</th>
                             <th>{{item.pid}}</th>
                             <th translate="no" :class="(item.VIP) ? 'vip' : '' ">{{item.Rkg_name}}</th>
-                            <th class="user-select-none">Roleplay</th>
                             <th :class="(item.banned) ? 'banned' : 'not_banned' "> {{item.banned}}</th>
                         </tr>
-                        <!-- <tr>
-                            <th colspan="5">
-                                <span class="red big bold">Nix hier</span>
+                        <tr v-if="!player">
+                            <th colspan="4">
+                                <span class="red big bold">{{lang.player.playernotfound}}</span>
                             </th>
-                        </tr> -->
+                        </tr>
                     </tbody>
+                </table>
+                <table class="player_infotable">
+                    <thead>
+                        <tr>
+                            <th class="text-deco-underline cursor-pointer" @click="closeMorePlayerDetails()">{{lang.words.close}}</th>
+                            <th colspan="99"><h1 class="center">{{lang.words.playerinfo}}: {{morePlayerData.firstname}} {{morePlayerData.lastname}}</h1></th>
+                        </tr>
+                        <tr>
+                            <th :title="lang.words.cid">cid</th>
+                            <th>{{lang.words.firstname}}</th>
+                            <th>{{lang.words.lastname}}</th>
+                            <th>{{lang.player.haveCars}}</th>
+                            <th>{{lang.words.lastlocation}}</th>
+                            <th translate="no">HP</th>
+                            <th>{{lang.words.dimension}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>{{morePlayerData.cid}}</th>
+                            <th>{{morePlayerData.firstname}}</th>
+                            <th>{{morePlayerData.lastname}}</th>
+                            <th>{{morePlayerData.vehicles}}</th>
+                            <th>X: {{morePlayerData.p_x}}, Y: {{morePlayerData.p_y}}, Z: {{morePlayerData.p_z}}</th>
+                            <th>{{morePlayerData.hp}}</th>
+                            <th>{{morePlayerData.dim}}</th>
+                        </tr>
+                        <tr>
+                            <th colspan="99" class="cursor-pointer show_more_details" @click="showMorePlayerDetails()">{{lang.player.morebtn}}</th>
+                        </tr>
+                        <tr>
+                            <th colspan="99"><div></div></th>
+                        </tr>
+                    </tbody>
+                    <tfoot class="">
+                            <tr style="color: var(--organgenav);">
+                                <th>{{lang.words.armor}}</th>
+                                <th>{{lang.words.height}}</th>
+                                <th>{{lang.words.age}}</th>
+                                <th>{{lang.words.fraction}}</th>
+                                <th>{{lang.words.pnumber}}</th>
+                                <th>{{lang.words.phonenumber}}</th>
+                                <th>{{lang.words.gender}}</th>
+                                <th>{{lang.words.hunger}}</th>
+                                <th>{{lang.words.thirst}}</th>
+                            </tr>
+                            <tr>
+                                <th>{{morePlayerData.armor}}</th>
+                                <th>{{morePlayerData.height}}</th>
+                                <th>{{morePlayerData.age}}</th>
+                                <th>{{morePlayerData.fraction}}</th>
+                                <th>{{morePlayerData.pnumber}}</th>
+                                <th>{{morePlayerData.phonenumber}}</th>
+                                <th>{{morePlayerData.gender}}</th>
+                                <th>{{morePlayerData.hunger}}</th>
+                                <th>{{morePlayerData.thirst}}</th>
+                            </tr>
+                    </tfoot>
                 </table>
             </div>
             <!-- Respawn, Ts Support Bannen Info  -->
@@ -102,6 +146,26 @@ export default {
             selectedPid: '',
             onlineplayer: '',
             offlineplayer: '',
+            morePlayerData: {
+                cid: '',
+                firstname: '',
+                lastname: '',
+                vehicles: '',
+                p_x: '',
+                p_y: '',
+                p_z: '',
+                dim: '',
+                hp: '',
+                armor: '',
+                height: '',
+                age: '',
+                fraction: '',
+                pnumber: '',
+                phonenumber: '',
+                gender: '',
+                hunger: '',
+                thirst: '',
+            }
         }
     },
     methods: {
@@ -119,14 +183,37 @@ export default {
          * @param 3 = info
          */
         editP(pid, type) {
-            player.editPlayer(pid, type, (response) => {
-                if(response.data) {
-                    alert(pid + ' erfolgreich geändert');
+            if(type !== 3) {
+                player.editPlayer(pid, type, (response) => {
+                    if(response.data) {
+                        alert(pid + ' erfolgreich geändert');
+                        return;
+                    }
+                    alert('ERROR ' + response.data);
                     return;
-                }
-                alert('ERROR ' + response.data);
-                return;
-            });
+                });
+            }else {
+                player.getPlayerData(pid, (response) => {
+                    if(response.data) {
+                        player.insertMorePlayerData(this.morePlayerData, response.data[0]);
+                        document.querySelector('.player_infotable').classList.add('player_infotable_active')
+                        return;
+                    }
+                    alert('ERROR ' + response.data)
+                    return;
+                });
+            }
+        },
+        showMorePlayerDetails() {
+            let div = document.querySelector('.player_infotable > tfoot:nth-child(3)');
+            let btn = document.querySelector('.show_more_details');
+            let divclass = 'player_tfoot_active';
+            player.showMorePlayerDetails(div, btn, divclass);
+        },
+        closeMorePlayerDetails() {
+            document.querySelector('.player_infotable').classList.remove('player_infotable_active');
+            document.querySelector('.player_infotable > tfoot:nth-child(3)').classList.remove('player_tfoot_active');
+            return;
         }
     },
     async beforeCreate() {
