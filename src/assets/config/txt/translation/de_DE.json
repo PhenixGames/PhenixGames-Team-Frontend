@@ -1,7 +1,130 @@
 {
+    "words": {
+        "apply": {
+            "one": "Bewerbung",
+            "more": "Bewerbungen"
+        },
+        "player": {
+            "one": "Spieler",
+            "more": "Spieler"
+        },
+        "vehicle": {
+            "one": "Fahrzeug",
+            "more": "Fahrzeuge"
+        },
+        "request": {
+            "one": "Antrag",
+            "more": "Anträge"
+        },
+        "from": {
+            "up": "Von",
+            "down": "von"
+        },
+        "website": {
+            "one": "Webseite",
+            "more": "Webseiten"
+        },
+        "settings": "Einstellungen",
+        "adminservice": "Admindienst",
+        "userarea": "Userbereich",
+        "forum": "Forum",
+        "homepage": "Homepage",
+        "teaminfo": "Team Informationen",
+        "teamid": "Team-ID",
+        "roleplay": "Roleplay",
+        "gangwar": "Gangwar",
+        "online": {
+            "up": "Online",
+            "down": "online"
+        },
+        "offline": {
+            "up": "Offline",
+            "down": "offline"
+        },
+        "playerid": "Spieler-ID",
+        "rockstarname": "R-Name",
+        "server": "Server",
+        "status": "Status",
+        "playerlist": "Spielerliste",
+        "respawn": "Respawn",
+        "support": {
+            "up": "Support",
+            "down": "support"
+        },
+        "aban": {
+            "one": {
+                "up": "Ban",
+                "down": "ban"
+            },
+            "more": {
+                "up": "Bans",
+                "down": "bans"
+            }
+        },
+        "ban": {
+            "one": "banne",
+            "more": "Bannen"
+        },
+        "infos": {
+            "short": {
+                "one": {
+                    "up": "Info",
+                    "down": "info"
+                },
+                "more": {
+                    "up": "Infos",
+                    "down": "infos"
+                }
+            },
+            "long": {
+                "one": {
+                    "up": "Information",
+                    "down": "information"
+                },
+                "more": {
+                    "up": "Informationen",
+                    "down": "informationen"
+                }
+            }
+        },
+        "close": "Schließen",
+        "cid": "Characterid",
+        "playerinfo": "Spielerinfo",
+        "firstname": "Vorname",
+        "lastname": "Nachname",
+        "lastlocation": "Letzte Position",
+        "dimension": "Dimension",
+        "armor": "Rüstung",
+        "height": "Größe",
+        "age": "Alter",
+        "fraction": "Fraktion",
+        "pnumber": "P-Nummer",
+        "phonenumber": "Handynummer",
+        "gender": "Geschlecht",
+        "hunger": "Hunger",
+        "thirst": "Durst"
+    },
     "login": {
         "error_b": "Du musst eine TeamID angeben.",
         "error_b_leng": "Die TeamID muss mindestens 5 Zeichen lang sein.",
         "error_p": "Du musst ein Passwort eingeben."
+    },
+    "homepage": {
+        "welcome": "Willkommen im Teambereich",
+        "openrequests": "Offene Anträge",
+        "openreports": "Offenen Reports",
+        "openapplys": "Offene Bewerbungen",
+        "settingsdesc": "Stelle dir dein Teambereich individuell ein",
+        "adminservicedesc": "Gehe mit einem Klick in den Admindienst, auf dem Server wo du online bist",
+        "userareaddesc": "Gelange zum Userbereich",
+        "forumdesc": "Gelange zum Forum",
+        "homepagedesc": "Gelange zur Homepage",
+        "discorddesc": "Öffne unseren Discord Server"
+    },
+    "player": {
+        "morebtn": "Mehr anzeigen",
+        "lessbtn": "Weniger anzeigen",
+        "haveCars": "Autos in besitz",
+        "playernotfound": "Keine Spieler gefunden."
     }
 }

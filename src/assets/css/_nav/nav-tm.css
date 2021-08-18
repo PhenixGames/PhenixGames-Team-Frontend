@@ -1,6 +1,8 @@
 @import url('nav-tm-media.css');
 
 nav {
+    position: relative;
+    z-index: 9;
     background: var(--tmtabs);
     height: 100vh;
     width: 17%;
@@ -85,7 +87,7 @@ nav {
     border-left: 10px solid var(--organgenav);
 }
 
-.navactive {
+.router-link-active div {
     border-left: 10px solid var(--organgenav);
 }
 
@@ -207,10 +209,11 @@ nav {
 /*! MAIN */
 
 .infobar {
+    position: relative;
     height: 50px;
     padding: 2px 50px;
     background: var(--organgenav);
     font-size: 1.8em;
     width: 100vw;
-    z-index: 9;
+    z-index: 8;
 }

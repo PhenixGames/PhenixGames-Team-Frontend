@@ -2,72 +2,62 @@
     <main class="startseite_body">
     <section class="col startseite_section">
       <header>
-        <div class="tab center left welcome">
-          <span class="fsize-1-5">Willkommen im Teambereich</span>
+        <div class="tab center left site_name">
+          <span class="fsize-1-5">{{lang.homepage.welcome}}</span>
         </div>
       </header>
       <main class="left width-100 display-block margin-0-auto">
         <header>
           <div class="tab tab-33 center left">
-            <span class="fsize-1-5">Offene Anträge: 12</span>
+            <span class="fsize-1-5">{{lang.homepage.openrequests}}: 12</span>
           </div>
 
           <div class="tab tab-33 center left">
-            <span class="fsize-1-5">Offene Reports: 12</span>
+            <span class="fsize-1-5">{{lang.homepage.openreports}}: 12</span>
           </div>
 
           <div class="tab tab-33 center left">
-            <span class="fsize-1-5">Offene Bewerbungen: 12</span>
+            <span class="fsize-1-5">{{lang.homepage.openapplys}}: 12</span>
           </div>
         </header>
         <div class="startseite_tab_select right">
           <div class="tab">
             <span class="fsize-1-5"
-              ><span>Settings</span>
+              ><span>{{lang.words.settings}}</span>
               <img
                 class="right"
                 src="https://img.icons8.com/color/48/000000/settings--v2.png"
             /></span>
-            <span>Stelle dir dein Teambereich individuell ein</span>
+            <span>{{lang.homepage.settingsdesc}}</span>
           </div>
           <div class="tab" id="setadmindienst">
             <span class="fsize-1-5"
-              ><span>Admindienst</span>
+              ><span>{{lang.words.adminservice}}</span>
               <img
                 class="right"
                 src="https://img.icons8.com/bubbles/50/000000/user-male.png"
             /></span>
             <span
-              >Gehe mit einem Klick in den Admindienst, auf dem Server wo du
-              online bist</span
+              >{{lang.homepage.adminservicedesc}}</span
             >
           </div>
           <div class="tab">
             <span class="fsize-1-5"
-              ><span>Userbereich</span>
+              ><span>{{lang.words.userarea}}</span>
               <img
                 class="right"
                 src="https://img.icons8.com/bubbles/50/000000/user-male.png"
             /></span>
-            <span>Gelange zum Userbereich</span>
+            <span>{{lang.homepage.userareaddesc}}</span>
           </div>
           <div class="tab">
             <span class="fsize-1-5"
-              ><span>Adminbereich</span>
-              <img
-                class="right"
-                src="https://img.icons8.com/bubbles/50/000000/admin-settings-male.png"
-            /></span>
-            <span>Gelange zum Teambereich</span>
-          </div>
-          <div class="tab">
-            <span class="fsize-1-5"
-              ><span>Forum</span>
+              ><span>{{lang.words.forum}}</span>
               <img
                 class="right"
                 src="https://img.icons8.com/doodle/48/000000/chat.png"
             /></span>
-            <span>Gelange zum Forum</span>
+            <span>{{lang.homepage.forumdesc}}</span>
           </div>
           <a
             href="https://phenixgames.de/"
@@ -76,12 +66,12 @@
           >
             <div class="tab">
               <span class="fsize-1-5"
-                ><span>Homepage</span>
+                ><span>{{lang.words.homepage}}</span>
                 <img
                   class="right"
                   src="https://img.icons8.com/fluent/48/000000/domain.png"
               /></span>
-              <span>Gelange zur Homepage</span>
+              <span>{{lang.homepage.homepagedesc}}</span>
             </div>
           </a>
           <a
@@ -91,23 +81,23 @@
           >
             <div class="tab">
               <span class="fsize-1-5"
-                ><span>Discord</span>
+                ><span translate="no">Discord</span>
                 <img
                   class="right"
                   src="https://img.icons8.com/color/48/000000/discord-new-logo.png"
               /></span>
-              <span>Öffne unseren Discord Server</span>
+              <span>{{lang.homepage.discorddesc}}</span>
             </div>
           </a>
         </div>
         <div class="tab center left teaminfo">
-          <span class="fsize-1-5"
-            ><img
-              src="https://img.icons8.com/fluent/48/000000/user-group-man-woman.png" />Team-Informationen<img
-              src="https://img.icons8.com/fluent/48/000000/user-group-man-woman.png"
-          /></span>
+          <span class="fsize-1-5">
+            <img src="https://img.icons8.com/fluent/48/000000/user-group-man-woman.png" />
+              <span>{{lang.words.teaminfo}}</span>
+            <img src="https://img.icons8.com/fluent/48/000000/user-group-man-woman.png"/>
+          </span>
           <p class="team_info textleft">
-            <span><br /><br />Von: <span class="red"></span></span>
+            <span><br /><br />{{lang.words.from.up}}: <span class="red"></span></span>
           </p>
           <span id="team_info_history" class="cursor-pointer">
             <img
@@ -120,3 +110,20 @@
     </section>
   </main>
 </template>
+
+<script>
+import { getLang } from '../../assets/config/txt/getLang';
+import { getConfig } from '../../assets/js/config/getConfig';
+
+const config = getConfig.getConfig();
+const lang = getLang();
+
+export default {
+  name: config.routing.home.name,
+  data: () => {
+    return {
+      lang: lang
+    }
+  }
+}
+</script>

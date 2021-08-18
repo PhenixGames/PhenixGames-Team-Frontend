@@ -9,49 +9,49 @@
         <div class="profilname center display-grid">
             <span id="teamname" title="Username"><strong>{{username}}</strong></span>
             <span class="tiny bold" title="Socialclub name">({{scname}})</span>
-            <span id="teamid">Team-ID: <strong>{{teamid}}</strong></span>
+            <span id="teamid">{{lang.words.teamid}}: <strong>{{teamid}}</strong></span>
         </div>
     </div>
     <div class="nav_main">
         <router-link :to="{path: routes.home}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Startseite</span><img src="https://img.icons8.com/cute-clipart/50/000000/home.png" />
+            <span>{{lang.words.homepage}}</span><img src="https://img.icons8.com/cute-clipart/50/000000/home.png" />
         </div></router-link>
         <router-link :to="{path: routes.games.player}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Spieler</span><img src="https://img.icons8.com/color/48/000000/player-male.png" />
+            <span>{{lang.words.player.more}}</span><img src="https://img.icons8.com/color/48/000000/player-male.png" />
         </div></router-link>
 
         <router-link :to="{path: routes.games.vehicle}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Fahrzeuge</span><img src="https://img.icons8.com/bubbles/50/000000/car.png" />
+            <span>{{lang.words.vehicle.more}}</span><img src="https://img.icons8.com/bubbles/50/000000/car.png" />
         </div></router-link>
 
         <router-link :to="{path: routes.games.forum}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Forum</span><img src="https://img.icons8.com/bubbles/50/000000/myspace.png" />
+            <span>{{lang.words.forum}}</span><img src="https://img.icons8.com/bubbles/50/000000/myspace.png" />
         </div></router-link>
 
         <a href="bewerbungen.php" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Bewerbungen</span><img src="https://img.icons8.com/ultraviolet/40/000000/gpx.png" />
+            <span>{{lang.words.apply.more}}</span><img src="https://img.icons8.com/ultraviolet/40/000000/gpx.png" />
         </div></a>
 
         <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Antr&auml;ge</span><img src="https://img.icons8.com/offices/40/000000/invite.png" />
+            <span>{{lang.words.request.more}}</span><img src="https://img.icons8.com/offices/40/000000/invite.png" />
         </div></a>
 
         <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Webseite</span><img src="https://img.icons8.com/color/48/000000/domain.png" />
+            <span>{{lang.words.website.one}}</span><img src="https://img.icons8.com/color/48/000000/domain.png" />
         </div></a>
         <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Roleplay-Log</span><img src="https://img.icons8.com/color/48/000000/event-log.png" />
-        </div></a>
-
-        <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Gangwars-Log</span><img src="https://img.icons8.com/color/48/000000/event-log.png" />
+            <span translate="no">Roleplay-Log</span><img src="https://img.icons8.com/color/48/000000/event-log.png" />
         </div></a>
 
         <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Website-Log</span><img src="https://img.icons8.com/color/48/000000/event-log.png" />
+            <span translate="no">Gangwars-Log</span><img src="https://img.icons8.com/color/48/000000/event-log.png" />
+        </div></a>
+
+        <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
+            <span translate="no">Website-Log</span><img src="https://img.icons8.com/color/48/000000/event-log.png" />
         </div></a>
         <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
-            <span>Einstellungen</span><img src="https://img.icons8.com/fluent/48/000000/settings.png" />
+            <span>{{lang.words.settings}}</span><img src="https://img.icons8.com/fluent/48/000000/settings.png" />
         </div></a>
     </div>
 
@@ -85,7 +85,10 @@
 </style>
 
 <script>
+import { getLang } from '../../assets/config/txt/getLang';
 import { getConfig } from '../../assets/js/config/getConfig'
+
+const lang = getLang();
 const config = getConfig.getConfig();
 const root = config.routing.root.route
 
@@ -102,7 +105,8 @@ export default {
                     forum: root + config.routing.game.forum.viewforum.route
                 }
             },
-            currentTime: ''
+            currentTime: '',
+            lang: lang
         }
     },
     mounted() {
@@ -112,17 +116,17 @@ export default {
     },
     methods: {
         setTime() {
-                    const current = new Date();
-                    const months = ((current.getMonth()+1) < 10) ? '0' + (current.getMonth()+1) : current.getMonth()+1;
-                    const days = (current.getDate() < 10) ? '0' + current.getDate() : current.getDate();
-                    const hrs = (current.getHours() < 10) ? '0' + current.getHours() : current.getHours();
-                    const mins = (current.getMinutes() < 10) ? '0' + current.getMinutes() : current.getMinutes();
-                    const secs = (current.getSeconds() < 10) ? '0' + current.getSeconds(): current.getSeconds();
+            const current = new Date();
+            const months = ((current.getMonth()+1) < 10) ? '0' + (current.getMonth()+1) : current.getMonth()+1;
+            const days = (current.getDate() < 10) ? '0' + current.getDate() : current.getDate();
+            const hrs = (current.getHours() < 10) ? '0' + current.getHours() : current.getHours();
+            const mins = (current.getMinutes() < 10) ? '0' + current.getMinutes() : current.getMinutes();
+            const secs = (current.getSeconds() < 10) ? '0' + current.getSeconds(): current.getSeconds();
 
-                    const date = days + '.' + months + '.' + current.getFullYear();
-                    const time = hrs + ":" + mins + ":" + secs;
-                    const dateTime = date +' '+ time;
-                    this.currentTime = dateTime;
+            const date = days + '.' + months + '.' + current.getFullYear();
+            const time = hrs + ":" + mins + ":" + secs;
+            const dateTime = date +' '+ time;
+            this.currentTime = dateTime;
         }
     },
     props: [

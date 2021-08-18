@@ -62,21 +62,13 @@ import { getConfig } from '../../assets/js/config/getConfig';
 const config = getConfig.getConfig()
 
 export default {
-  name: "team Login",
+  name: config.routing.signin.name,
   data: () => {
     return {
       errors: [],
       teamid: "",
       password: "",
     }
-  },
-  async beforeCreate() {
-    getuser.getuser((response) => {
-      if(response.data) {
-        this.$router.push(config.routing.root.route + config.routing.home.route);
-        return;
-      }
-    });
   },
   methods: {
     checkInput: function (e) {

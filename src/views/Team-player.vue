@@ -15,29 +15,27 @@ const config = getConfig.getConfig();
 
 export default {
     name: config.routing.game.player.viewplayer.name,
-    data: () => {
-        return {
-            username: '',
-            teamid: '',
-            scname: ''
-        }
-    },
+    data: () => {return {}},
     components: {
         navtm,
         playertm
     },
-    async beforeCreate() {
-        await getuser.getuser((response) => {
-        if (!response.data || response.data == "") {
-            this.$router.push(
-            config.routing.root.route + config.routing.signin.route
-            );
-            return;
-        }
-        this.teamid = response.data.teamid;
-        this.username = response.data.username;
-        this.scname = response.data.scname;
-        });
-    },
+    props: {
+        username: { 
+        type: String,
+        required: true,
+        default: "Max"
+        },
+        teamid: { 
+        type: Number,
+        required: true,
+        default: "99999"
+        },
+        scname: { 
+        type: String,
+        required: true,
+        default: 'MaxMuster123'
+        },
+    }
 };
 </script>

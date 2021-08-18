@@ -9,7 +9,10 @@
 body {
     background: var(--tmbg);
     margin: 0;
+    padding: 0;
     overflow-x: hidden;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
 a {
@@ -78,11 +81,6 @@ img {
     -ms-user-select: none;
 }
 
-body>main {
-    margin: 50px 0px 0 250px;
-    padding: 0 50px 0 0;
-}
-
 .tab {
     display: inline-block;
     padding: 20px 40px;
@@ -101,10 +99,14 @@ body>main {
     width: 33%;
 }
 
-.welcome {
+.site_name {
     background: var(--organgenav);
+    font-weight: 700;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
 }
-
 
 /*! POPUP */
 
@@ -137,33 +139,6 @@ body>main {
 .vehiclelist,
 .bewerbungslist {
     overflow-x: auto;
-}
-
-/*! BUTTONS */
-.pl_button_wrapper {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    cursor: not-allowed;
-}
-
-.pl_button {
-    box-shadow: var(--boxshadow);
-    height: 53px;
-    width: 250px;
-    margin: 19px 0;
-    background: #23262C;
-    border-radius: 10px;
-    pointer-events: none;
-    opacity: 0.4;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.pl_button:hover {
-    transform: translateY(-2px);
 }
 
 .on_off {
