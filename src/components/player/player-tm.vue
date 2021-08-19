@@ -132,6 +132,7 @@
 import { getLang } from '../../assets/config/txt/getLang'
 import { getConfig } from '../../assets/js/config/getConfig';
 import { player } from '../../assets/js/gameserver/player';
+import Errormessage from '../../assets/js/Errormessage/Errormessage';
 
 const config = getConfig.getConfig();
 const lang = getLang();
@@ -185,10 +186,12 @@ export default {
             if(type !== 3) {
                 player.editPlayer(pid, type, (response) => {
                     if(response.data) {
-                        alert(pid + ' erfolgreich geändert');
+                        let Info = new Errormessage(pid + ' erfolgreich geändert', 3)
+                        Info.mountError();
                         return;
                     }
-                    alert('ERROR ' + response.data);
+                    let Error = new Errormessage(response.data, 1);
+                    Error.mountError();
                     return;
                 });
             }else {
@@ -198,7 +201,8 @@ export default {
                         document.querySelector('.player_infotable').classList.add('player_infotable_active')
                         return;
                     }
-                    alert('ERROR ' + response.data)
+                    let Error = new Errormessage(response.data, 1);
+                    Error.mountError();
                     return;
                 });
             }
@@ -217,6 +221,11 @@ export default {
     },
     async beforeCreate() {
         await player.getPlayer((response) => {  
+            if(!response) {
+                let Error = new Errormessage(response.data, 1);
+                Error.mountError();
+                return;
+            }
             var onlineplayer = 0;
             var offlineplayer = 0; 
             for(let i = 0; i < response.data.length; i++ ) {    

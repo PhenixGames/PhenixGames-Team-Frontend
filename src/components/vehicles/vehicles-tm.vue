@@ -78,6 +78,7 @@
 import { getLang } from '../../assets/config/txt/getLang'
 import { getConfig } from '../../assets/js/config/getConfig';
 import { vehicle } from '../../assets/js/gameserver/vehicle';
+import Errormessage from '../../assets/js/Errormessage/Errormessage';
 
 const config = getConfig.getConfig();
 const lang = getLang();
@@ -111,10 +112,12 @@ export default {
             if(type !== 3) {
                 vehicle.edit(vid, type, (response) => {
                     if(response) {
-                        alert(pid + ' erfolgreich geändert');
+                        let Info = new Errormessage(vid + ' erfolgreich geändert', 3)
+                        Info.mountError();
                         return;
                     }
-                    alert('ERROR ' + response);
+                    let Error = new Errormessage(response.data, 1);
+                    Error.mountError();
                     return;
                 });
             }else {
@@ -123,7 +126,8 @@ export default {
                         alert(JSON.stringify(response.data[0]))
                         return;
                     }
-                    alert('ERROR ' + JSON.stringify(response));
+                    let Error = new Errormessage(response.data, 1);
+                    Error.mountError();
                     return;
                 });
             }

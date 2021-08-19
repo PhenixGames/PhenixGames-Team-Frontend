@@ -122,7 +122,7 @@ export default {
   name: config.routing.home.name,
   data: () => {
     return {
-      lang: lang
+      lang: lang,
     }
   }
 }

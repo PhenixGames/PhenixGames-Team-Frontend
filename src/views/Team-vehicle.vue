@@ -1,12 +1,11 @@
 <template>
+    <div id="err_div"></div>
     <navtm :username="username" :teamid="teamid" :scname="scname"/>
     <vehiclestm />
-    <errormessage />
 </template>
 
 <script>
 import navtm from '../components/_nav/nav-tm.vue';
-import errormessage from '../components/_errormessage/errormessage.vue';
 import { getConfig } from '../assets/js/config/getConfig';
 import { getuser } from '../assets/js/getuser';
 import vehiclestm from '../components/vehicles/vehicles-tm.vue';
@@ -19,7 +18,6 @@ export default {
     components: {
         navtm,
         vehiclestm,
-        errormessage
     },
     props: {
         username: { 
