@@ -142,7 +142,6 @@ export default {
         return {
             lang: lang,
             player: [],
-            pl_length: [],
             selectedPid: '',
             onlineplayer: '',
             offlineplayer: '',

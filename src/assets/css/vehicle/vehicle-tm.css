@@ -1,0 +1,121 @@
+@import url('./vehicle-tm-media.css');
+
+.vehicle_section {
+    width: 83%;
+    max-height: 94vh;
+    overflow-y: scroll !important;
+    float: left;
+    scrollbar-width: none;
+}
+
+.vehicle_section::-webkit-scrollbar {
+    width: none;
+}
+
+.vehlist {
+    width: 96%;
+    scrollbar-width: none;
+    display: grid;
+    justify-content: stretch;
+}
+
+.vehlist::-webkit-scrollbar {
+    width: none;
+}
+
+.int_btn_menu {
+    right: 40px;
+    bottom: 10px;
+}
+
+.int_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .2s ease-in-out;
+}
+
+.int_btn img{
+    background: var(--orange);
+    opacity: .4;
+    width: max-content; height: max-content;
+    padding: 5px;
+    margin: 20px 0;
+    border-radius: 50px;
+    pointer-events: none;
+}
+
+.int_btn:not(.cursor-no-drop) img {
+    background: var(--orange);
+    pointer-events: all;
+    opacity: 1;
+}
+
+.int_btn:not(.cursor-no-drop) img:hover {
+    transform: translateY(-5px);
+}
+
+.tip {
+    opacity: 0;
+
+}
+
+.int_btn:not(.cursor-no-drop) img:hover ~ .tip {
+    opacity: 1;
+    transform: translateX(-80px);
+}
+
+.int_btn span {
+    position: absolute;
+    transform: translateX(-70px);
+    transition: .2s ease-in-out !important;
+    pointer-events: none;
+}
+
+.int_btn_main_menu {
+    transform: translateY(20px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#open_int_menu_checkbox:checked ~ .int_btn_main_menu{
+    transform: translateY(0);
+    pointer-events: all;
+    opacity: 1;
+}
+
+#open_int_menu_checkbox:checked ~ label .open_int_menu img {
+    transform: rotate(45deg);
+}
+
+.open_int_menu {
+    background: var(--white);
+    width: fit-content; height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 50px;
+}
+
+
+/**
+*!  ## vehlist ##
+*/
+
+.unparked {
+    color: var(--red);
+}
+.parked{
+    color: var(--green);
+}
+
+.vehlist table {
+    border-collapse: collapse;
+    scrollbar-width: none;
+}
+
+.veh_selected {
+    background: var(--violet);
+}

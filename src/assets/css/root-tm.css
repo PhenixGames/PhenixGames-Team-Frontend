@@ -136,26 +136,10 @@ img {
 
 /*! TABLES */
 .playerlist,
-.vehiclelist,
+.vehlist,
 .bewerbungslist {
     overflow-x: auto;
 }
-
-.on_off {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    margin-left: 20px;
-}
-
-.on {
-    background: green;
-}
-
-.off {
-    background: red;
-}
-
 
 main tbody label div {
     height: 40px;

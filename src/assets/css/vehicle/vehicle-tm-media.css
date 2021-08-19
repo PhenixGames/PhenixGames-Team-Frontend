@@ -1,0 +1,68 @@
+@media only screen and (max-width: 1151px) {
+    .vehicle_section {
+        width: 100% !important;
+    }
+    .vehicle_section main {
+        width: 96%;
+    }
+    .player_infotable {
+        width: 90% !important;
+        transform: translateX(50%) !important;
+    }
+}
+
+@media only screen and (max-width: 948px) {
+    .vehlist table th {
+        padding: 30px;
+        text-align: left;
+    }
+    .vehicle_section header {
+        display: inline-grid !important;
+    }
+
+    .vehicle_section > header > div:nth-child(2){
+        width: 100% !important;
+    }
+
+    .vehicle_section > header > div {
+        display: inline-flex;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .vehlist.tab {
+        padding: 10px 20px !important;
+    }
+    .vehlist table th {
+        padding: 10px;
+        margin: 30px 0;
+    }
+}
+
+@media only screen and (max-width: 655px) {
+    .site_name {
+        font-size: 2.4vw !important;
+    }
+}
+
+@media only screen and (max-width: 542px) {
+    .vehicle_section > main > div:nth-child(1) a:nth-child(1){
+        margin-top: 20px;
+    }
+
+    .vehicle_section > header > div {
+        display: contents !important;
+        justify-content: space-between !important;
+    }
+
+    .vehicle_section > header > div .tab,
+    .vehicle_section > main >div:nth-child(1) .tab,
+    .vehlist {
+        margin: 5px 10px !important;
+    }
+    .vehlist {
+        width: 100% !important;
+        margin: 40px 10px !important; 
+    }
+}

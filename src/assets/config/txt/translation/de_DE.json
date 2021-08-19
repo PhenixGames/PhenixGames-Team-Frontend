@@ -102,7 +102,12 @@
         "phonenumber": "Handynummer",
         "gender": "Geschlecht",
         "hunger": "Hunger",
-        "thirst": "Durst"
+        "thirst": "Durst",
+        "owner": "Inhaber",
+        "unparked": "Ausgeparkt",
+        "parked": "Eingeparkt",
+        "vehlist": "Fahrzeugliste",
+        "delete": "Löschen"
     },
     "login": {
         "error_b": "Du musst eine TeamID angeben.",
@@ -126,5 +131,9 @@
         "lessbtn": "Weniger anzeigen",
         "haveCars": "Autos in besitz",
         "playernotfound": "Keine Spieler gefunden."
+    },
+    "vehicle": {
+        "vehid": "Fahrzeug-ID",
+        "vehname": "Fahrzeug Name"
     }
 }
