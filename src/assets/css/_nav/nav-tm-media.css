@@ -31,6 +31,13 @@
     }
 }
 
+@media only screen and (max-width: 1151px) {
+    .burger_mobile_menu {
+        position: relative;
+        z-index: 10;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     nav {
         left: -230px;
@@ -80,7 +87,7 @@
 
     #mobile_menu_checkbox:checked ~ label{
         left: 81% !important;
-        z-index: 9;
+        z-index: auto;
     }
     .infobar span {
         display: none;

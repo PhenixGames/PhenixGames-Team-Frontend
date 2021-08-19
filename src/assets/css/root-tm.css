@@ -136,7 +136,7 @@ img {
 
 /*! TABLES */
 .playerlist,
-.vehiclelist,
+.vehlist,
 .bewerbungslist {
     overflow-x: auto;
 }

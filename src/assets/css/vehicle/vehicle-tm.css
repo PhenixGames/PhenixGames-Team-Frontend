@@ -104,16 +104,11 @@
 *!  ## vehlist ##
 */
 
-.unparked,
-.banned {
+.unparked {
     color: var(--red);
 }
-.parked,
-.not_banned{
+.parked{
     color: var(--green);
-}
-.yellow {
-    color: var(--yellow);
 }
 
 .vehlist table {
