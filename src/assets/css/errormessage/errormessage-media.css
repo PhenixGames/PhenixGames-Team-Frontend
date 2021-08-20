@@ -1,0 +1,16 @@
+@media only screen and (max-width: 425px) {
+    #err_div {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .error_message p,
+    .warn_message p,
+    .general_message p {
+        font-size: 8vw !important;
+    }
+}

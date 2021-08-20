@@ -1,7 +1,6 @@
 <template>
-  <navtm :username="username" :teamid="teamid" :scname="scname"/>
+  <navtm :username="username" :teamid="teamid" :scname="scname" />
   <homepagetm />
-  <errormessage />
 </template>
 
 <style scoped>
@@ -10,37 +9,37 @@
 
 <script>
 import navtm from "../components/_nav/nav-tm.vue";
-import homepagetm from '../components/homepage/homepage-tm.vue';
-import errormessage from '../components/_errormessage/errormessage.vue';
-import { getuser } from '../assets/js/getuser';
-import { getConfig } from '../assets/js/config/getConfig';
+import homepagetm from "../components/homepage/homepage-tm.vue";
+import { getuser } from "../assets/js/getuser";
+import { getConfig } from "../assets/js/config/getConfig";
 
 const config = getConfig.getConfig();
 
 export default {
   name: config.routing.home.name,
-  data: function () {return {}},
+  data: () => {
+    return {};
+  },
   components: {
     navtm,
     homepagetm,
-    errormessage
   },
   props: {
-    username: { 
+    username: {
       type: String,
       required: true,
-      default: "Max"
+      default: "Max",
     },
-    teamid: { 
+    teamid: {
       type: Number,
       required: true,
-      default: "99999"
+      default: "99999",
     },
-    scname: { 
+    scname: {
       type: String,
       required: true,
-      default: 'MaxMuster123'
+      default: "MaxMuster123",
     },
-  }
+  },
 };
 </script>

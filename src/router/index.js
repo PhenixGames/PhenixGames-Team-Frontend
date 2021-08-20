@@ -1,6 +1,9 @@
 import teamconfig from '../../config-team.json';
 import {createRouter, createWebHistory} from 'vue-router';
 import {getuser} from '../assets/js/getuser';
+import Errormessage from '../assets/js/Errormessage/Errormessage';
+import {getLang} from '../assets/config/txt/getLang';
+const lang = getLang();
 const routes = [
     {
         path: "/",
@@ -45,17 +48,26 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     getuser.getuser((response) => {
-        if(to.fullPath === teamconfig.routing.root.route + teamconfig.routing.signin.route && response.data) {
-            return next({
-                path: teamconfig.routing.root.route + teamconfig.routing.home.route
-            });
+        if(response.status === 200 || response.status === 204) {
+            if(to.fullPath === teamconfig.routing.root.route + teamconfig.routing.signin.route && response.data) {
+                return next({
+                    path: teamconfig.routing.root.route + teamconfig.routing.home.route
+                });
+            }
+            if(to.name !== teamconfig.routing.signin.name && !response.data) {
+                let Error = new Errormessage(lang.errors.notloggedin + ' ' + lang.errors.signinfirst, 1);
+                Error.mountError();
+
+                return next({
+                    path: teamconfig.routing.root.route + teamconfig.routing.signin.route
+                });
+            }
+            return next();
+        }else {
+            let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 1);
+            Error.mountError();
+            return next();
         }
-        if(to.name !== teamconfig.routing.signin.name && !response.data) {
-            return next({
-                path: teamconfig.routing.root.route + teamconfig.routing.signin.route
-            });
-        }
-        return next();
     });
 });
 

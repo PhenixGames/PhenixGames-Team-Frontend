@@ -31,7 +31,7 @@
                             <th translate="no" :class="(item.VIP) ? 'vip' : '' ">{{item.Rkg_name}}</th>
                             <th :class="(item.banned) ? 'banned' : 'not_banned' "> {{item.banned}}</th>
                         </tr>
-                        <tr v-if="!player">
+                        <tr v-if="player == ''">
                             <th colspan="4">
                                 <span class="red big bold">{{lang.player.playernotfound}}</span>
                             </th>
@@ -132,6 +132,7 @@
 import { getLang } from '../../assets/config/txt/getLang'
 import { getConfig } from '../../assets/js/config/getConfig';
 import { player } from '../../assets/js/gameserver/player';
+import Errormessage from '../../assets/js/Errormessage/Errormessage';
 
 const config = getConfig.getConfig();
 const lang = getLang();
@@ -184,22 +185,33 @@ export default {
         editP(pid, type) {
             if(type !== 3) {
                 player.editPlayer(pid, type, (response) => {
-                    if(response.data) {
-                        alert(pid + ' erfolgreich geändert');
+                    if(response.status !== 200) {
+                        let Error = new Errormessage(lang.player.failededitplayer, 1);
+                        Error.mountError();
                         return;
                     }
-                    alert('ERROR ' + response.data);
-                    return;
+                    else if(response.data) {
+                        let Info = new Errormessage(pid + ' ' + lang.success.changes, 3)
+                        Info.mountError();
+                        return;
+                    }
                 });
             }else {
                 player.getPlayerData(pid, (response) => {
-                    if(response.data) {
+                    if(response.status == 200) {
                         player.insertMorePlayerData(this.morePlayerData, response.data[0]);
                         document.querySelector('.player_infotable').classList.add('player_infotable_active')
                         return;
+                    }else if(response.status !== 200 && response.status === 204) {
+                        let Error = new Errormessage(lang.errors.nodata, 0);
+                        Error.mountError();
+                        return;
                     }
-                    alert('ERROR ' + response.data)
-                    return;
+                    else {
+                        let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 1);
+                        Error.mountError();
+                        return;
+                    }
                 });
             }
         },
@@ -217,14 +229,26 @@ export default {
     },
     async beforeCreate() {
         await player.getPlayer((response) => {  
-            var onlineplayer = 0;
-            var offlineplayer = 0; 
-            for(let i = 0; i < response.data.length; i++ ) {    
-                this.player.push(response.data[i]);
-                (response.data[i].online) ? onlineplayer++ : offlineplayer++;
+            if(response.status === 200) {
+                var onlineplayer = 0;
+                var offlineplayer = 0; 
+                for(let i = 0; i < response.data.length; i++ ) {    
+                    this.player.push(response.data[i]);
+                    (response.data[i].online) ? onlineplayer++ : offlineplayer++;
+                }
+                this.onlineplayer = onlineplayer;
+                this.offlineplayer = offlineplayer;
+
+                return;
+            }else if(response.status === 204) {
+                let Error = new Errormessage(lang.errors.nodata, 0);
+                Error.mountError();
+                return;
+            }else {
+                let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 1);
+                Error.mountError();
+                return;   
             }
-            this.onlineplayer = onlineplayer;
-            this.offlineplayer = offlineplayer
         });
     }
 }

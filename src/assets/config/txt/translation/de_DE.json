@@ -112,7 +112,11 @@
     "login": {
         "error_b": "Du musst eine TeamID angeben.",
         "error_b_leng": "Die TeamID muss mindestens 5 Zeichen lang sein.",
-        "error_p": "Du musst ein Passwort eingeben."
+        "error_p": "Du musst ein Passwort eingeben.",
+        "noaccfound": "Es wurde kein Account mit der Teamid und dem Passwort gefunden."
+    },
+    "logout": {
+        "logoutprocess": "Logout in process..."
     },
     "homepage": {
         "welcome": "Willkommen im Teambereich",
@@ -130,10 +134,24 @@
         "morebtn": "Mehr anzeigen",
         "lessbtn": "Weniger anzeigen",
         "haveCars": "Autos in besitz",
-        "playernotfound": "Keine Spieler gefunden."
+        "playernotfound": "Keine Spieler gefunden.",
+        "failededitplayer": "Beim editieren ist ein Fehler aufgetreten."
     },
     "vehicle": {
         "vehid": "Fahrzeug-ID",
         "vehname": "Fahrzeug Name"
+    },
+    "errors": {
+        "some_went_wrong": "Etwas ist schief gelaufen.",
+        "tryagain": "Bitte versuche es erneut.",
+        "notloggedin": "Du bist nicht angemeldet.",
+        "signinfirst": "Um fortzufahren, melde dich an.",
+        "logoutfailed": "Dein Logout ist fehlgeschlagen.",
+        "plsdeletecookies": "Bitte lösche alle Cookies, die auf diese Seite hindeuten.",
+        "nodata": "Keine Daten gefunden.",
+        "teamidnonumber": "Die Teamid muss eine Nummer sein."
+    },
+    "success": {
+        "changes": "erfolgreich geändert."
     }
 }

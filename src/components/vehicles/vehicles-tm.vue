@@ -78,6 +78,7 @@
 import { getLang } from '../../assets/config/txt/getLang'
 import { getConfig } from '../../assets/js/config/getConfig';
 import { vehicle } from '../../assets/js/gameserver/vehicle';
+import Errormessage from '../../assets/js/Errormessage/Errormessage';
 
 const config = getConfig.getConfig();
 const lang = getLang();
@@ -110,32 +111,51 @@ export default {
         editVeh(vid, type) {
             if(type !== 3) {
                 vehicle.edit(vid, type, (response) => {
-                    if(response) {
-                        alert(pid + ' erfolgreich geändert');
+                    if(response.status === 200) {
+                        let Info = new Errormessage(vid + ' ' + lang.success.changes, 2)
+                        Info.mountError();
+                        return;
+                    }else {
+                        let Error = new Errormessage(lang.errors.some_went_wrong, 1);
+                        Error.mountError();
                         return;
                     }
-                    alert('ERROR ' + response);
-                    return;
                 });
             }else {
                 vehicle.getOne(vid, (response) => {
-                    if(response) {
+                    if(response.status === 200) {
                         alert(JSON.stringify(response.data[0]))
                         return;
+                    }else if(response.status === 204) {
+                        let Error = new Errormessage(lang.errors.nodata, 0);
+                        Error.mountError();
+                        return;
+                    }else {
+                        let Error = new Errormessage(lang.errors.some_went_wrong, 1);
+                        Error.mountError();
+                        return; 
                     }
-                    alert('ERROR ' + JSON.stringify(response));
-                    return;
                 });
             }
         }
     },
     async beforeCreate() {
         vehicle.get((response) => {
-            for(let i = 0; i < response.data.length; i++ ) {  
-                this.vehicles.push(response.data[i]);
-                (response.data[i].Eingeparkt) ? this.parkedveh++ : this.unparkedveh++;
+            if(response.status === 204) {
+                let Error = new Errormessage(lang.errors.nodata, 2);
+                Error.mountError();
+                return;
+            }else if(response.status === 200) {
+                for(let i = 0; i < response.data.length; i++ ) {  
+                    this.vehicles.push(response.data[i]);
+                    (response.data[i].Eingeparkt) ? this.parkedveh++ : this.unparkedveh++;
+                }
+                return;
+            }else {
+                let Error = new Errormessage(lang.errors.some_went_wrong, 1);
+                Error.mountError();
+                return;
             }
-            return;
         });
     }
 }
