@@ -1,7 +1,7 @@
 @import url('./errormessage-media.css');
 
 #err_div {
-    position: absolute;
+    position: fixed;
     right: 2%;
     top: 7%;
     user-select: none;
@@ -33,7 +33,7 @@
 .error_message p,
 .warn_message p,
 .general_message p {
-    font-size: 1.3vw;
+    font-size: 1.3rem;
     font-weight: 900;
     text-align: center;
     margin: 2px;

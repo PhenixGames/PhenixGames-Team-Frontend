@@ -134,7 +134,8 @@
         "morebtn": "Mehr anzeigen",
         "lessbtn": "Weniger anzeigen",
         "haveCars": "Autos in besitz",
-        "playernotfound": "Keine Spieler gefunden."
+        "playernotfound": "Keine Spieler gefunden.",
+        "failededitplayer": "Beim editieren ist ein Fehler aufgetreten."
     },
     "vehicle": {
         "vehid": "Fahrzeug-ID",
@@ -149,5 +150,8 @@
         "plsdeletecookies": "Bitte lösche alle Cookies, die auf diese Seite hindeuten.",
         "nodata": "Keine Daten gefunden.",
         "teamidnonumber": "Die Teamid muss eine Nummer sein."
+    },
+    "success": {
+        "changes": "erfolgreich geändert."
     }
 }

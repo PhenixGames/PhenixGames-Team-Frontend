@@ -4,6 +4,7 @@
     width: 83%;
     max-height: 94vh;
     overflow-y: scroll !important;
+    overflow-x: hidden;
     float: left;
     scrollbar-width: none;
 }

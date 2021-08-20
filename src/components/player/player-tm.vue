@@ -186,12 +186,12 @@ export default {
             if(type !== 3) {
                 player.editPlayer(pid, type, (response) => {
                     if(response.status !== 200) {
-                        let Error = new Errormessage('Failed to edit Player', 1);
+                        let Error = new Errormessage(lang.player.failededitplayer, 1);
                         Error.mountError();
                         return;
                     }
                     else if(response.data) {
-                        let Info = new Errormessage(pid + ' erfolgreich geändert', 3)
+                        let Info = new Errormessage(pid + ' ' + lang.success.changes, 3)
                         Info.mountError();
                         return;
                     }
