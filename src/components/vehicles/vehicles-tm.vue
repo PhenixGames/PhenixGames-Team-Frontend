@@ -111,35 +111,51 @@ export default {
         editVeh(vid, type) {
             if(type !== 3) {
                 vehicle.edit(vid, type, (response) => {
-                    if(response) {
-                        let Info = new Errormessage(vid + ' erfolgreich geändert', 3)
+                    if(response.status === 200) {
+                        let Info = new Errormessage(vid + ' erfolgreich geändert', 2)
                         Info.mountError();
                         return;
+                    }else {
+                        let Error = new Errormessage(lang.errors.some_went_wrong, 1);
+                        Error.mountError();
+                        return;
                     }
-                    let Error = new Errormessage(response.data, 1);
-                    Error.mountError();
-                    return;
                 });
             }else {
                 vehicle.getOne(vid, (response) => {
-                    if(response) {
+                    if(response.status === 200) {
                         alert(JSON.stringify(response.data[0]))
                         return;
+                    }else if(response.status === 204) {
+                        let Error = new Errormessage(lang.errors.nodata, 0);
+                        Error.mountError();
+                        return;
+                    }else {
+                        let Error = new Errormessage(lang.errors.some_went_wrong, 1);
+                        Error.mountError();
+                        return; 
                     }
-                    let Error = new Errormessage(response.data, 1);
-                    Error.mountError();
-                    return;
                 });
             }
         }
     },
     async beforeCreate() {
         vehicle.get((response) => {
-            for(let i = 0; i < response.data.length; i++ ) {  
-                this.vehicles.push(response.data[i]);
-                (response.data[i].Eingeparkt) ? this.parkedveh++ : this.unparkedveh++;
+            if(response.status === 204) {
+                let Error = new Errormessage(lang.errors.nodata, 2);
+                Error.mountError();
+                return;
+            }else if(response.status === 200) {
+                for(let i = 0; i < response.data.length; i++ ) {  
+                    this.vehicles.push(response.data[i]);
+                    (response.data[i].Eingeparkt) ? this.parkedveh++ : this.unparkedveh++;
+                }
+                return;
+            }else {
+                let Error = new Errormessage(lang.errors.some_went_wrong, 1);
+                Error.mountError();
+                return;
             }
-            return;
         });
     }
 }

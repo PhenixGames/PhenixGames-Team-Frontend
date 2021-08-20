@@ -1,5 +1,4 @@
 <template>
-    <div id="err_div"></div>
     <navtm :username="username" :teamid="teamid" :scname="scname"/>
     <vehiclestm />
 </template>

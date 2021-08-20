@@ -1,4 +1,5 @@
 <template>
+  <div id="err_div"></div>
   <router-view :username="username" :teamid="teamid" :scname="scname" />
 </template>
 

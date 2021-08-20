@@ -7,7 +7,7 @@ export default class Errormessage {
      * @param {Number} type 
      *    0 = Warning
      *    1 = Error
-     *    3 = Message
+     *    2 = Message
     */
     constructor(message, type) {
         this.message = message;
@@ -24,10 +24,10 @@ export default class Errormessage {
 
         let divClass;
         let newHeaderText;
-        if(this.type === 0) {
+        if(this.type == "0") {
             divClass = 'warn_message';
             newHeaderText = 'Warning!';
-        }else if(this.type === 1) {
+        }else if(this.type == "1") {
             divClass = 'error_message';
             newHeaderText = 'Error!'
         }else {

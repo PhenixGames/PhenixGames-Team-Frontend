@@ -1,13 +1,14 @@
 <template>
+<div id="err_div"></div>
   <img
-    src="//www.blackdayz.de/Library/pg/logo/PhenixGames_Logo_no_text.svg"
+    src="https://www.blackdayz.de/Library/pg/logo/PhenixGames_Logo_no_text.svg"
     class="bg fixed"
   />
 
   <div class="wrapper">
     <div class="login">
       <div class="login_pic display-flex justify-content-center">
-        <img src="//www.blackdayz.de/Library/pg/logo/PhenixGames_Logo_no_text.svg" />
+        <img src="https://www.blackdayz.de/Library/pg/logo/PhenixGames_Logo_no_text.svg" />
       </div>
 
       <ul v-if="errors.length" class="red bold center">
@@ -59,6 +60,10 @@ import { checkForm } from "../../assets/js/login/checkForm";
 import { tmlogin } from "../../assets/js/login/team-login";
 import { getuser } from '../../assets/js/getuser';
 import { getConfig } from '../../assets/js/config/getConfig';
+import Errormessage from '../../assets/js/Errormessage/Errormessage';
+import { getLang } from '../../assets/config/txt/getLang';
+
+const lang = getLang();
 const config = getConfig.getConfig()
 
 export default {
@@ -76,13 +81,22 @@ export default {
       this.errors = [];
       let check = checkForm.checkForm(this.teamid, this.password);
       this.errors.push(check);
-      if (check) return;
+      if (check) {
+        return
+      };
+
       tmlogin.tmlogin(this.teamid, this.password, (response) => {
-        if(response.data == true) {
+        if(response.status === 203) {
+            let Error = new Errormessage(lang.errors.teamidnonumber, 1);
+            Error.mountError();
+            return;
+        }else if(response.status === 200) {
           this.$router.push({path: config.routing.root.route});
           return;
         }else {
-          this.errors.push(response.data);
+          let Error = new Errormessage(lang.login.noaccfound, 1);
+          Error.mountError();
+          return;
         }
       });
     },

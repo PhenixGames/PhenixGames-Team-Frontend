@@ -31,7 +31,7 @@
                             <th translate="no" :class="(item.VIP) ? 'vip' : '' ">{{item.Rkg_name}}</th>
                             <th :class="(item.banned) ? 'banned' : 'not_banned' "> {{item.banned}}</th>
                         </tr>
-                        <tr v-if="!player">
+                        <tr v-if="player == ''">
                             <th colspan="4">
                                 <span class="red big bold">{{lang.player.playernotfound}}</span>
                             </th>
@@ -185,25 +185,33 @@ export default {
         editP(pid, type) {
             if(type !== 3) {
                 player.editPlayer(pid, type, (response) => {
-                    if(response.data) {
+                    if(response.status !== 200) {
+                        let Error = new Errormessage('Failed to edit Player', 1);
+                        Error.mountError();
+                        return;
+                    }
+                    else if(response.data) {
                         let Info = new Errormessage(pid + ' erfolgreich geändert', 3)
                         Info.mountError();
                         return;
                     }
-                    let Error = new Errormessage(response.data, 1);
-                    Error.mountError();
-                    return;
                 });
             }else {
                 player.getPlayerData(pid, (response) => {
-                    if(response.data) {
+                    if(response.status == 200) {
                         player.insertMorePlayerData(this.morePlayerData, response.data[0]);
                         document.querySelector('.player_infotable').classList.add('player_infotable_active')
                         return;
+                    }else if(response.status !== 200 && response.status === 204) {
+                        let Error = new Errormessage(lang.errors.nodata, 0);
+                        Error.mountError();
+                        return;
                     }
-                    let Error = new Errormessage(response.data, 1);
-                    Error.mountError();
-                    return;
+                    else {
+                        let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 1);
+                        Error.mountError();
+                        return;
+                    }
                 });
             }
         },
@@ -221,19 +229,26 @@ export default {
     },
     async beforeCreate() {
         await player.getPlayer((response) => {  
-            if(!response) {
-                let Error = new Errormessage(response.data, 1);
+            if(response.status === 200) {
+                var onlineplayer = 0;
+                var offlineplayer = 0; 
+                for(let i = 0; i < response.data.length; i++ ) {    
+                    this.player.push(response.data[i]);
+                    (response.data[i].online) ? onlineplayer++ : offlineplayer++;
+                }
+                this.onlineplayer = onlineplayer;
+                this.offlineplayer = offlineplayer;
+
+                return;
+            }else if(response.status === 204) {
+                let Error = new Errormessage(lang.errors.nodata, 0);
                 Error.mountError();
                 return;
+            }else {
+                let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 1);
+                Error.mountError();
+                return;   
             }
-            var onlineplayer = 0;
-            var offlineplayer = 0; 
-            for(let i = 0; i < response.data.length; i++ ) {    
-                this.player.push(response.data[i]);
-                (response.data[i].online) ? onlineplayer++ : offlineplayer++;
-            }
-            this.onlineplayer = onlineplayer;
-            this.offlineplayer = offlineplayer
         });
     }
 }
