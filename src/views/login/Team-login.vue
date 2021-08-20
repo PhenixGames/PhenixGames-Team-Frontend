@@ -80,8 +80,9 @@ export default {
       e.preventDefault();
       this.errors = [];
       let check = checkForm.checkForm(this.teamid, this.password);
-      this.errors.push(check);
       if (check) {
+        let Error = new Errormessage(check, 1);
+        Error.mountError();
         return
       };
 
