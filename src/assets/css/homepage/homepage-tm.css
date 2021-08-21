@@ -47,16 +47,23 @@
     background: white;
     border: 0;
 }
-
-.startseite_section main .team_info {
-    max-width: 400px;
-}
-
 .startseite_section main .teaminfo {
     margin: 30px;
     width: auto;
 }
 
+.teaminfo p:last-child{
+    width: 100%;
+}
+
 .team_info_history {
     width: 40px;
+}
+
+.team_info {
+    margin: 30px 0;
+}
+
+.team_info_btn img {
+    margin: 0 10px;
 }
