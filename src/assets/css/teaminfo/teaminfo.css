@@ -1,0 +1,41 @@
+@import url('./teaminfo.css');
+.addnewteaminfo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%,-50%);
+    height: auto; width: 70vw;
+    background: var(--violet);
+    padding: 10px 40px;
+}
+
+.addnewteaminfo main textarea {
+    max-width: 100%;
+    min-width: 100%;
+    border: 0;
+    max-height: 200px;
+    min-height: 200px;
+    background: var(--white);
+    padding: 10px;
+    resize: none;
+}
+
+.addnewteaminfo footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 10px 0;
+}
+
+.addnewteaminfo footer input {
+    background: var(--white);
+    border: none;
+    padding: 10px 0;
+    width: 150px;
+    border-radius: 5px;
+    transition: box-shadow margin .2s ease-in-out;
+}
+
+.addnewteaminfo footer input:hover {
+    box-shadow: 1px 3px 20px var(--black);
+    margin-bottom: -5px;
+}
