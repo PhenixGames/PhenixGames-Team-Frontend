@@ -8,7 +8,9 @@ export const tmlogin = {
             password: password
         }, {
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                //"Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
+                'Cache-control': "no-cache"
             },
             withCredentials: true
         }).then((response) => {
