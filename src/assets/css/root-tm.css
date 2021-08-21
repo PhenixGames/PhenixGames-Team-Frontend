@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+    width: none;
+}
+
 body {
     background: var(--tmbg);
     margin: 0;
