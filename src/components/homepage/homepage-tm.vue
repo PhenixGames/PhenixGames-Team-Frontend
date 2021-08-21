@@ -94,19 +94,20 @@
           <span class="fsize-1-5">
               <span class="bold big">{{lang.words.teaminfo}}</span>
           </span>
-          <p class="team_info textleft">
-            <span class="bold">{{lang.words.from.up}}: <span class="red">Test</span></span>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,</p>
+          <p v-if="!teaminfo.message" class="center "><br />{{lang.errors.nodata}}</p>
+          <p class="team_info textleft" v-else>
+            <span>{{lang.words.from.up}}: <span class="red bold">{{teaminfo.from}}</span></span>
+            <p>{{teaminfo.message}}</p>
+            <span class="thin">Am: {{teaminfo.at}}</span>
           </p>
           <div class="team_info_btn">
             <img @click="addTeamInfoMethod()" src="../../assets/img/icons/more.png" v-if="rank === 3" class="right cursor-pointer" title="Add info"/>
-            <img class="right team_info_history cursor-pointer" src="https://img.icons8.com/dusk/64/000000/time-machine.png" title="Show History"/>
+            <img @click="showTeamInfoHistory()" class="right team_info_history cursor-pointer" src="https://img.icons8.com/dusk/64/000000/time-machine.png" title="Show History"/>
           </div>
         </div>
       </main>
     </section>
+    <teamhistorytm v-if="!teaminfo.hideTeamInfo" :data="teaminfo.showAll" :openorCloseInfoHistory="openorCloseInfoHistory"/>
     <teaminfotm v-if="showAddTeamInfo" :closeAddNewTeamInfo="closeAddNewTeamInfo" :sendNewTeamInfo="sendNewTeamInfo"/>
   </main>
 </template>
@@ -117,6 +118,7 @@ import { getConfig } from '../../assets/js/config/getConfig';
 import { getuser } from '../../assets/js/getuser';
 import Teaminfo from '../../assets/js/teaminfo/Teaminfo';
 import teaminfotm from '../../components/teaminfo/teaminfo-tm.vue';
+import teamhistorytm from '../../components/teaminfo/teamhistory-tm.vue';
 
 const config = getConfig.getConfig();
 const lang = getLang();
@@ -127,11 +129,20 @@ export default {
     return {
       lang: lang,
       rank: '',
-      showAddTeamInfo: false
+      showAddTeamInfo: false,
+      teaminfo: {
+        id: '',
+        message: '',
+        from: '',
+        at:'',
+        showAll: '',
+        hideTeamInfo: true
+      }
     }
   },
   components: {
-    teaminfotm
+    teaminfotm,
+    teamhistorytm
   },
   methods: {
     addTeamInfoMethod() {
@@ -147,18 +158,57 @@ export default {
         teaminfo.saveMessage((response) => {
           if(response) {
             this.showAddTeamInfo = false;
+            this.showInfo();
           }
         });
       }
+    },
+    showInfo() {
+      let showteaminfo = new Teaminfo();
+      showteaminfo.showTeamInfo(false, (response) => {
+        if(!response) {return;}
+        this.teaminfo.id = response.data.infoid;
+        this.teaminfo.message = response.data.message;
+        this.teaminfo.from = response.data.teammember;
+
+        let created_at = response.data.created_at;
+        created_at = created_at.replace('T', ' ');
+        created_at = created_at.replace('Z', '');
+        created_at = created_at.slice(0, -4);
+        this.teaminfo.at = created_at;
+      });
+    },
+    showTeamInfoHistory() {
+      let showteaminfo = new Teaminfo();
+      showteaminfo.showTeamInfo(true, (response) => {
+        if(!response) {return;}
+        this.teaminfo.showAll = response.data;
+        for(let i in this.teaminfo.showAll) {
+          let created_at = this.teaminfo.showAll[i].created_at;
+          created_at = created_at.replace('T', ' ');
+          created_at = created_at.replace('Z', '');
+          created_at = created_at.slice(0, -4);
+          this.teaminfo.showAll[i].created_at = created_at;
+        }
+      });
+      this.openorCloseInfoHistory();
+    },
+    openorCloseInfoHistory() {
+      if(!this.teaminfo.message) {
+        return;
+      }
+      let showteaminfo = new Teaminfo();
+      showteaminfo.openCloseInfoHistory(this.teaminfo);
     }
+  },
+  mounted() {
+    this.showInfo();
   },
   beforeCreate() {
     getuser.getuser((response) => {
       this.rank = response.data.rank;
       this.teamid = response.data.teamid
     });
-    let showteaminfo = new Teaminfo(0);
-    showteaminfo.showTeamInfo();
   },
 }
 </script>

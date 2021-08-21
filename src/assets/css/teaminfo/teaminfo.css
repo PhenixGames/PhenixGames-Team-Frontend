@@ -1,5 +1,6 @@
 @import url('./teaminfo.css');
-.addnewteaminfo {
+.addnewteaminfo,
+#teamhistory {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -7,6 +8,9 @@
     height: auto; width: 70vw;
     background: var(--violet);
     padding: 10px 40px;
+    max-height: 90vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .addnewteaminfo main textarea {
@@ -38,4 +42,8 @@
 .addnewteaminfo footer input:hover {
     box-shadow: 1px 3px 20px var(--black);
     margin-bottom: -5px;
+}
+
+#teamhistory header span{
+    margin: 5px 0 0 0;
 }
