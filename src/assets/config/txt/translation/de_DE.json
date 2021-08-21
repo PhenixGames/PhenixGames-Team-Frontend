@@ -29,7 +29,7 @@
         "userarea": "Userbereich",
         "forum": "Forum",
         "homepage": "Homepage",
-        "teaminfo": "Team Informationen",
+        "teaminfo": "Team Information",
         "teamid": "Team-ID",
         "roleplay": "Roleplay",
         "gangwar": "Gangwar",
@@ -153,5 +153,8 @@
     },
     "success": {
         "changes": "erfolgreich geändert."
+    },
+    "teaminfo": {
+        "teaminfohistory": "Team Informationsverlauf"
     }
 }

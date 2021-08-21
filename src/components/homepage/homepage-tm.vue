@@ -92,28 +92,33 @@
         </div>
         <div class="tab center left teaminfo">
           <span class="fsize-1-5">
-            <img src="https://img.icons8.com/fluent/48/000000/user-group-man-woman.png" />
-              <span>{{lang.words.teaminfo}}</span>
-            <img src="https://img.icons8.com/fluent/48/000000/user-group-man-woman.png"/>
+              <span class="bold big">{{lang.words.teaminfo}}</span>
           </span>
-          <p class="team_info textleft">
-            <span><br /><br />{{lang.words.from.up}}: <span class="red"></span></span>
+          <p v-if="!teaminfo.message" class="center "><br />{{lang.errors.nodata}}</p>
+          <p class="team_info textleft" v-else>
+            <span>{{lang.words.from.up}}: <span class="red bold">{{teaminfo.from}}</span></span>
+            <p>{{teaminfo.message}}</p>
+            <span class="thin">Am: {{teaminfo.at}}</span>
           </p>
-          <span id="team_info_history" class="cursor-pointer">
-            <img
-              class="right team_info_history"
-              src="https://img.icons8.com/dusk/64/000000/time-machine.png"
-            />
-          </span>
+          <div class="team_info_btn">
+            <img @click="addTeamInfoMethod()" src="../../assets/img/icons/more.png" v-if="rank === 3" class="right cursor-pointer" title="Add info"/>
+            <img @click="showTeamInfoHistory()" class="right team_info_history cursor-pointer" src="https://img.icons8.com/dusk/64/000000/time-machine.png" title="Show History"/>
+          </div>
         </div>
       </main>
     </section>
+    <teamhistorytm v-if="!teaminfo.hideTeamInfo" :data="teaminfo.showAll" :openorCloseInfoHistory="openorCloseInfoHistory"/>
+    <teaminfotm v-if="showAddTeamInfo" :closeAddNewTeamInfo="closeAddNewTeamInfo" :sendNewTeamInfo="sendNewTeamInfo"/>
   </main>
 </template>
 
 <script>
 import { getLang } from '../../assets/config/txt/getLang';
 import { getConfig } from '../../assets/js/config/getConfig';
+import { getuser } from '../../assets/js/getuser';
+import Teaminfo from '../../assets/js/teaminfo/Teaminfo';
+import teaminfotm from '../../components/teaminfo/teaminfo-tm.vue';
+import teamhistorytm from '../../components/teaminfo/teamhistory-tm.vue';
 
 const config = getConfig.getConfig();
 const lang = getLang();
@@ -123,7 +128,87 @@ export default {
   data: () => {
     return {
       lang: lang,
+      rank: '',
+      showAddTeamInfo: false,
+      teaminfo: {
+        id: '',
+        message: '',
+        from: '',
+        at:'',
+        showAll: '',
+        hideTeamInfo: true
+      }
     }
-  }
+  },
+  components: {
+    teaminfotm,
+    teamhistorytm
+  },
+  methods: {
+    addTeamInfoMethod() {
+      this.showAddTeamInfo = true;
+    },
+    closeAddNewTeamInfo() {
+      this.showAddTeamInfo = false;
+    },
+    sendNewTeamInfo: function(e) {
+      e.preventDefault();
+      let teaminfo = new Teaminfo(e.target.[0].value);
+      if(teaminfo.checkMessage()) {
+        teaminfo.saveMessage((response) => {
+          if(response) {
+            this.showAddTeamInfo = false;
+            this.showInfo();
+          }
+        });
+      }
+    },
+    showInfo() {
+      let showteaminfo = new Teaminfo();
+      showteaminfo.showTeamInfo(false, (response) => {
+        if(!response) {return;}
+        this.teaminfo.id = response.data.infoid;
+        this.teaminfo.message = response.data.message;
+        this.teaminfo.from = response.data.teammember;
+
+        let created_at = response.data.created_at;
+        created_at = created_at.replace('T', ' ');
+        created_at = created_at.replace('Z', '');
+        created_at = created_at.slice(0, -4);
+        this.teaminfo.at = created_at;
+      });
+    },
+    showTeamInfoHistory() {
+      let showteaminfo = new Teaminfo();
+      showteaminfo.showTeamInfo(true, (response) => {
+        if(!response) {return;}
+        this.teaminfo.showAll = response.data;
+        for(let i in this.teaminfo.showAll) {
+          let created_at = this.teaminfo.showAll[i].created_at;
+          created_at = created_at.replace('T', ' ');
+          created_at = created_at.replace('Z', '');
+          created_at = created_at.slice(0, -4);
+          this.teaminfo.showAll[i].created_at = created_at;
+        }
+      });
+      this.openorCloseInfoHistory();
+    },
+    openorCloseInfoHistory() {
+      if(!this.teaminfo.message) {
+        return;
+      }
+      let showteaminfo = new Teaminfo();
+      showteaminfo.openCloseInfoHistory(this.teaminfo);
+    }
+  },
+  mounted() {
+    this.showInfo();
+  },
+  beforeCreate() {
+    getuser.getuser((response) => {
+      this.rank = response.data.rank;
+      this.teamid = response.data.teamid
+    });
+  },
 }
 </script>
