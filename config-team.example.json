@@ -7,32 +7,48 @@
             "route": "/team",
             "name": "Root"
         },
+        "getuser": "/getuser",
         "signin": {
             "route": "/signin",
-            "name": "Team Login"
+            "name": "Team Signin"
         },
         "logout": {
             "route": "/logout"
         },
         "home": {
             "route": "/",
-            "name": "Teamh Home"
+            "name": "Team Home"
         },
         "game": {
             "player": {
-                "viewplayer": {
-                    "route": "/player/view",
+                "view": {
+                    "route": "/getplayer",
                     "name": "View Player"
+                },
+                "edit": {
+                    "route": "/editplayer",
+                    "name": "Edit Player"
+                },
+                "get": {
+                    "route": "/getplayerdata?pid=",
+                    "name": "Get Playerdata"
                 }
             },
             "vehicle": {
-                "viewvehicle": {
-                    "route": "/vehicle/view",
+                "view": {
+                    "route": "/getvehicle",
                     "name": "View Vehicle"
+                },
+                "edit": {
+                    "route": "/editvehicle",
+                    "name": "Edit Vehicle"
+                },
+                "getone": {
+                    "route": "/getvehicle?vid="
                 }
             },
             "forum": {
-                "viewforum": {
+                "view": {
                     "route": "/forum/view",
                     "name": "View Forum"
                 }
