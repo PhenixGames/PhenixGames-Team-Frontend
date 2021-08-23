@@ -1,3 +1,3 @@
-. .\config.ps1
+. .\frontend_config.ps1
 
 ssh $user@$hostname "cd $path && npm run serve"
