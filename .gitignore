@@ -24,3 +24,5 @@ pnpm-debug.log*
 *.sw?
 
 config-team.json
+
+frontend_config.ps1
