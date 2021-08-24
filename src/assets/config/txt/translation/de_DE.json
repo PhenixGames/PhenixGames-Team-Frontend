@@ -109,6 +109,10 @@
         "vehlist": "Fahrzeugliste",
         "delete": "Löschen"
     },
+    "errorcodes": {
+        "c0": "Du musst eine TeamID angeben",
+        "c1": "Die TeamID muss mindestens 5 Zeichen lang sein."
+    },
     "login": {
         "error_b": "Du musst eine TeamID angeben.",
         "error_b_leng": "Die TeamID muss mindestens 5 Zeichen lang sein.",
