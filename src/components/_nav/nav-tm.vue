@@ -100,9 +100,9 @@ export default {
                 home: root + config.routing.home.route,
                 logout: root + config.routing.logout.route,
                 games: {
-                    player: root + config.routing.game.player.viewplayer.route,
-                    vehicle: root + config.routing.game.vehicle.viewvehicle.route,
-                    forum: root + config.routing.game.forum.viewforum.route
+                    player: root + config.routing.game.player.view.route,
+                    vehicle: root + config.routing.game.vehicle.view.route,
+                    forum: root + config.routing.game.forum.view.route
                 }
             },
             currentTime: '',
