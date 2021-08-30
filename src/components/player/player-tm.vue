@@ -191,7 +191,7 @@ export default {
                         return;
                     }
                     else if(response.data) {
-                        let Info = new Errormessage(pid + ' ' + lang.success.changes, 3)
+                        let Info = new Errormessage('pid: "' + pid + '" ' + response.data.code, 3)
                         Info.mountError();
                         return;
                     }

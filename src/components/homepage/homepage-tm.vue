@@ -166,7 +166,6 @@ export default {
     showInfo() {
       let showteaminfo = new Teaminfo();
       showteaminfo.showTeamInfo(false, (response) => {
-        console.log(response);
         if(!response) {return;}
         this.teaminfo.id = response.data.opt.infoid;
         this.teaminfo.message = response.data.opt.message;

@@ -112,7 +112,7 @@ export default {
             if(type !== 3) {
                 vehicle.edit(vid, type, (response) => {
                     if(response.status === 200) {
-                        let Info = new Errormessage(vid + ' ' + lang.success.changes, 2)
+                        let Info = new Errormessage(vid + ' ' + response.data.code, 2)
                         Info.mountError();
                         return;
                     }else {

@@ -28,7 +28,7 @@ export default class Teaminfo {
     }
     checkEmpty() {
         if(validator.isEmpty(this.message)) {
-            let Error = new Errormessage('Kann nicht leer sein', 1);
+            let Error = new Errormessage(lang.teaminfo.teaminfomessage_empty, 1);
             Error.mountError();
             return false;
         }
@@ -44,8 +44,8 @@ export default class Teaminfo {
                 'Cache-control': "no-cache"
             },
             withCredentials: true
-        }).then(() => {
-            let Error = new Errormessage('Geschafft', 2);
+        }).then((response) => {
+            let Error = new Errormessage(response.data.code, 2);
             Error.mountError();
             return cb(true);
         }).catch(() => {
