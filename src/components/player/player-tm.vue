@@ -138,7 +138,7 @@ const config = getConfig.getConfig();
 const lang = getLang();
 
 export default {
-    name: config.routing.game.player.viewplayer.name,
+    name: config.routing.game.player.view.name,
     data: () => {
         return {
             lang: lang,
@@ -198,8 +198,9 @@ export default {
                 });
             }else {
                 player.getPlayerData(pid, (response) => {
-                    if(response.status == 200) {
-                        player.insertMorePlayerData(this.morePlayerData, response.data[0]);
+                    if(response.status === 200) {
+                        console.log(response)
+                        player.insertMorePlayerData(this.morePlayerData, response.data.opt[0]);
                         document.querySelector('.player_infotable').classList.add('player_infotable_active')
                         return;
                     }else if(response.status !== 200 && response.status === 204) {
@@ -232,13 +233,12 @@ export default {
             if(response.status === 200) {
                 var onlineplayer = 0;
                 var offlineplayer = 0; 
-                for(let i = 0; i < response.data.length; i++ ) {    
-                    this.player.push(response.data[i]);
-                    (response.data[i].online) ? onlineplayer++ : offlineplayer++;
+                for(let i = 0; i < response.data.opt.length; i++ ) {    
+                    this.player.push(response.data.opt[i]);
+                    (response.data.opt[i].online) ? onlineplayer++ : offlineplayer++;
                 }
                 this.onlineplayer = onlineplayer;
                 this.offlineplayer = offlineplayer;
-
                 return;
             }else if(response.status === 204) {
                 let Error = new Errormessage(lang.errors.nodata, 0);

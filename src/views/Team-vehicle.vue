@@ -12,7 +12,7 @@ import vehiclestm from '../components/vehicles/vehicles-tm.vue';
 const config = getConfig.getConfig();
 
 export default {
-    name: config.routing.game.player.viewplayer.name,
+    name: config.routing.game.player.view.name,
     data: function () {return {}},
     components: {
         navtm,

@@ -84,7 +84,7 @@ const config = getConfig.getConfig();
 const lang = getLang();
 
 export default {
-    name: config.routing.game.vehicle.viewvehicle.name,
+    name: config.routing.game.vehicle.view.name,
     data: () => {
         return {
             lang: lang,
@@ -124,7 +124,7 @@ export default {
             }else {
                 vehicle.getOne(vid, (response) => {
                     if(response.status === 200) {
-                        alert(JSON.stringify(response.data[0]))
+                        alert(JSON.stringify(response.data.opt[0]))
                         return;
                     }else if(response.status === 204) {
                         let Error = new Errormessage(lang.errors.nodata, 0);
@@ -146,9 +146,9 @@ export default {
                 Error.mountError();
                 return;
             }else if(response.status === 200) {
-                for(let i = 0; i < response.data.length; i++ ) {  
-                    this.vehicles.push(response.data[i]);
-                    (response.data[i].Eingeparkt) ? this.parkedveh++ : this.unparkedveh++;
+                for(let i = 0; i < response.data.opt.length; i++ ) {  
+                    this.vehicles.push(response.data.opt[i]);
+                    (response.data.opt[i].Eingeparkt) ? this.parkedveh++ : this.unparkedveh++;
                 }
                 return;
             }else {

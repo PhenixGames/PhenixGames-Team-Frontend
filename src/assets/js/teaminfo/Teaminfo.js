@@ -2,7 +2,18 @@ import validator from 'validator';
 import Errormessage from '../Errormessage/Errormessage';
 import axios from 'axios';
 import {getLang} from '../../config/txt/getLang';
+import { getConfig } from '../config/getConfig';
 const lang = getLang();
+const config = getConfig.getConfig();
+
+const getteaminfo = (process.env.NODE_ENV === 'production') ? 
+                    `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.teaminfo.get.route}` 
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.teaminfo.get.route}`
+const editteaminfo = (process.env.NODE_ENV === 'production') ? 
+                    `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.teaminfo.edit.route}` 
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.teaminfo.edit.route}`
+
+
 
 export default class Teaminfo {
     constructor(message) {
@@ -24,7 +35,7 @@ export default class Teaminfo {
         return true;
     }
     saveMessage(cb) {
-        axios.post('../../api/team/setteaminfo', {
+        axios.post(editteaminfo, {
             teaminfo: this.message,
         }, {
             headers: {
@@ -33,11 +44,11 @@ export default class Teaminfo {
                 'Cache-control': "no-cache"
             },
             withCredentials: true
-        }).then((response) => {
+        }).then(() => {
             let Error = new Errormessage('Geschafft', 2);
             Error.mountError();
             return cb(true);
-        }).catch((error) => {
+        }).catch(() => {
             let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 2);
             Error.mountError();
             return;
@@ -46,7 +57,7 @@ export default class Teaminfo {
     showTeamInfo(type, cb) {
         let url;
         if(type === true) {url = true} else {url = false}
-        axios.get('../../api/team/getteaminfo?q='+url, {
+        axios.get(getteaminfo+url, {
             headers: {
                 "Content-type": "application/json",
                 //"Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
@@ -61,7 +72,7 @@ export default class Teaminfo {
             }else {
                 return cb(response);
             }
-        }).catch((e) => {
+        }).catch(() => {
             let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 2);
             Error.mountError();
             return cb(false);

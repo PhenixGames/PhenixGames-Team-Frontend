@@ -14,7 +14,7 @@ import { getuser } from '../assets/js/getuser';
 const config = getConfig.getConfig();
 
 export default {
-    name: config.routing.game.player.viewplayer.name,
+    name: config.routing.game.player.view.name,
     data: () => {return {}},
     components: {
         navtm,

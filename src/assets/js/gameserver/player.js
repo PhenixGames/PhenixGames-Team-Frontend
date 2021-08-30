@@ -7,11 +7,11 @@ const lang = getLang();
 
 const getplayerroute = (process.env.NODE_ENV === 'production') ? 
                     `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.player.view.route}` 
-                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.player.viewplayer.route}`
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.player.view.route}`
 
 const editplayerroute = (process.env.NODE_ENV === 'production') ? 
                     `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.player.edit.route}` 
-                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.player.editplayer.route}`
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.player.edit.route}`
 
 const getplayerdataroute = (process.env.NODE_ENV === 'production') ? 
                     `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.player.get.route}` 
@@ -89,6 +89,7 @@ const player = {
     },
     
     insertMorePlayerData(v, data) {
+        console.log(data)
         v.cid = data.cid;
         v.firstname = data.first_name;
         v.lastname = data.last_name;

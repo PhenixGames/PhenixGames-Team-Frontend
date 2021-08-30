@@ -116,7 +116,7 @@
 import { getLang } from '../../assets/config/txt/getLang';
 import { getConfig } from '../../assets/js/config/getConfig';
 import { getuser } from '../../assets/js/getuser';
-import Teaminfo from '../../assets/js/teaminfo/Teaminfo';
+import Teaminfo from '../../assets/js/teaminfo/teaminfo';
 import teaminfotm from '../../components/teaminfo/teaminfo-tm.vue';
 import teamhistorytm from '../../components/teaminfo/teamhistory-tm.vue';
 
@@ -166,12 +166,13 @@ export default {
     showInfo() {
       let showteaminfo = new Teaminfo();
       showteaminfo.showTeamInfo(false, (response) => {
+        console.log(response);
         if(!response) {return;}
-        this.teaminfo.id = response.data.infoid;
-        this.teaminfo.message = response.data.message;
-        this.teaminfo.from = response.data.teammember;
+        this.teaminfo.id = response.data.opt.infoid;
+        this.teaminfo.message = response.data.opt.message;
+        this.teaminfo.from = response.data.opt.teammember;
 
-        let created_at = response.data.created_at;
+        let created_at = response.data.opt.created_at;
         created_at = created_at.replace('T', ' ');
         created_at = created_at.replace('Z', '');
         created_at = created_at.slice(0, -4);
@@ -182,7 +183,7 @@ export default {
       let showteaminfo = new Teaminfo();
       showteaminfo.showTeamInfo(true, (response) => {
         if(!response) {return;}
-        this.teaminfo.showAll = response.data;
+        this.teaminfo.showAll = response.data.opt;
         for(let i in this.teaminfo.showAll) {
           let created_at = this.teaminfo.showAll[i].created_at;
           created_at = created_at.replace('T', ' ');
