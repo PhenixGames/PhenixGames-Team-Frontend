@@ -168,6 +168,12 @@ export default {
             }
         }
     },
+    props: [
+        "username",
+        "teamid",
+        "scname",
+        "rank"
+    ],
     methods: {
         selectPlayer(pid) {
             if(this.selectedPid == pid) {

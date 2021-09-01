@@ -1,5 +1,5 @@
 import axios from 'axios';
-import tmconfig from '../../../../config-team.json';
+import jwt_decode from 'jwt-decode';
 import { getConfig } from '../config/getConfig';
 const config = getConfig.getConfig()
 
@@ -20,6 +20,8 @@ export const tmlogin = {
             },
             withCredentials: true
         }).then((response) => {
+            let s = jwt_decode(response.data);
+            console.log(s.data)
             if(response) {
                 localStorage.setItem('authkey', response.data);
             }

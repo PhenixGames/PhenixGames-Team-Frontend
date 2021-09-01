@@ -40,7 +40,7 @@ export default class Teaminfo {
         }, {
             headers: {
                 "Content-type": "application/json",
-                //"Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
+                'x-access-token': `${localStorage.getItem('authkey')}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -60,8 +60,8 @@ export default class Teaminfo {
         axios.get(getteaminfo+url, {
             headers: {
                 "Content-type": "application/json",
-                //"Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
-                'Cache-control': "no-cache"
+                'Cache-control': "no-cache",
+                'x-access-token': `${localStorage.getItem('authkey')}`
             },
             withCredentials: true
         }).then((response) => {
