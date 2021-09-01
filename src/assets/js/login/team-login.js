@@ -20,6 +20,9 @@ export const tmlogin = {
             },
             withCredentials: true
         }).then((response) => {
+            if(response) {
+                localStorage.setItem('authkey', response.data);
+            }
             return cb(response);
         }).catch((error) => {
             return cb(error);
