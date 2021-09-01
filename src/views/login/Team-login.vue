@@ -92,6 +92,7 @@ export default {
             Error.mountError();
             return;
         }else if(response.status === 200) {
+          //localStorage.setItem('pg_authkey', res)
           this.$router.push({path: config.routing.root.route});
           return;
         }else {

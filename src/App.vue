@@ -19,6 +19,8 @@ export default {
       scname: false
     }
   },
+  mounted() {
+  },
   beforeCreate() {
     getuser.getuser((response) => {
       this.teamid = response.data.teamid;

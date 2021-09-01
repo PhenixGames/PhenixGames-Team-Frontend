@@ -1,11 +1,26 @@
 import axios from 'axios';
 import { getLang } from '../../config/txt/getLang';
+import { getConfig } from '../config/getConfig';
 
+const config = getConfig.getConfig();
 const lang = getLang();
+
+const getplayerroute = (process.env.NODE_ENV === 'production') ? 
+                    `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.player.view.route}` 
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.player.view.route}`
+
+const editplayerroute = (process.env.NODE_ENV === 'production') ? 
+                    `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.player.edit.route}` 
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.player.edit.route}`
+
+const getplayerdataroute = (process.env.NODE_ENV === 'production') ? 
+                    `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.player.get.route}` 
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.player.get.route}`
+
 
 const player = {
     getPlayer: (cb) => {
-        axios.get(`../../api/team/getplayer`, {
+        axios.get(getplayerroute, {
             headers: {
                 "Content-type": "application/json",
                 // "Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
@@ -25,7 +40,7 @@ const player = {
      * @param 3 = info
      */
     editPlayer: (pid, type, cb) => { //
-        axios.post(`../../api/team/editplayer`, {
+        axios.post(editplayerroute, {
             pid: pid,
             type: type
         }, {
@@ -43,7 +58,7 @@ const player = {
     },
 
     getPlayerData: (pid, cb) => {
-        axios.get(`../../api/team/getplayerdata?pid=${pid}`, {
+        axios.get(`${getplayerdataroute}${pid}`, {
             headers: {
                 "Content-type": "application/json",
                 // "Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
@@ -74,6 +89,7 @@ const player = {
     },
     
     insertMorePlayerData(v, data) {
+        console.log(data)
         v.cid = data.cid;
         v.firstname = data.first_name;
         v.lastname = data.last_name;

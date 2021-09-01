@@ -155,6 +155,7 @@
         "changes": "erfolgreich geändert."
     },
     "teaminfo": {
-        "teaminfohistory": "Team Informationsverlauf"
+        "teaminfohistory": "Team Informationsverlauf",
+        "teaminfomessage_empty": "Die Teaminfonachricht darf nicht leer sein."
     }
 }

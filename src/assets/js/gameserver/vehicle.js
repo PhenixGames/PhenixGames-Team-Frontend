@@ -1,8 +1,24 @@
 import axios from "axios"
 
+import { getConfig } from '../config/getConfig';
+const config = getConfig.getConfig()
+
+const getvehicleroute = (process.env.NODE_ENV === 'production') ? 
+                    `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.vehicle.view.route}` 
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.vehicle.view.route}`
+
+const editvehicleroute = (process.env.NODE_ENV === 'production') ? 
+                    `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.vehicle.edit.route}` 
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.vehicle.edit.route}`
+
+const getoneroute = (process.env.NODE_ENV === 'production') ? 
+                    `${process.env.VUE_APP_HTTP}${process.env.VUE_APP_BACKENDDOMAIN}/${config.routing.root.route}/api/${process.env.VUE_APP_APIV}/${config.routing.game.vehicle.getone.route}` 
+                    : `../../api${config.routing.root.route}/${process.env.VUE_APP_APIV}${config.routing.game.vehicle.getone.route}`
+
+
 const vehicle = {
     get: (cb) => {
-        axios.get(`../../api/team/getvehicle`, {
+        axios.get(getvehicleroute, {
             headers: {
                 "Content-type": "application/json",
                 // "Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
@@ -19,7 +35,7 @@ const vehicle = {
         if(!vid) {
             return cb(false);
         }
-        axios.put(`../../api/team/editvehicle`, {
+        axios.put(editvehicleroute, {
             vid: vid,
             type: type,
             headers: {
@@ -38,7 +54,7 @@ const vehicle = {
         if(!vid) {
             return cb(false);
         }
-        axios.get(`../../api/team/getvehicle?vid=${vid}`, {
+        axios.get(`${getoneroute}${vid}`, {
             headers: {
                 "Content-type": "application/json",
                 // "Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
