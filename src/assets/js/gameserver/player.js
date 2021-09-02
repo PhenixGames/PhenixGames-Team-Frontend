@@ -89,7 +89,6 @@ const player = {
     },
     
     insertMorePlayerData(v, data) {
-        console.log(data)
         v.cid = data.cid;
         v.firstname = data.first_name;
         v.lastname = data.last_name;

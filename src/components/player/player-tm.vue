@@ -205,7 +205,6 @@ export default {
             }else {
                 player.getPlayerData(pid, (response) => {
                     if(response.status === 200) {
-                        console.log(response)
                         player.insertMorePlayerData(this.morePlayerData, response.data.opt[0]);
                         document.querySelector('.player_infotable').classList.add('player_infotable_active')
                         return;
