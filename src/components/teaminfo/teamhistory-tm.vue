@@ -19,7 +19,7 @@
 
 <script>
 import { getLang } from '../../assets/config/txt/getLang'
-import Teaminfo from '../../assets/js/teaminfo/teaminfo';
+import Teaminfo from '../../assets/js/teaminfo/Teaminfo';
 const lang = getLang();
 export default {
     data() {
