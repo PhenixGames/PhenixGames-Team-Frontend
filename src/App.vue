@@ -16,16 +16,16 @@ export default {
     return {
       teamid: false,
       username: false,
-      scname: false
+      scname: false,
+      rank: 0
     }
-  },
-  mounted() {
   },
   beforeCreate() {
     getuser.getuser((response) => {
       this.teamid = response.data.teamid;
       this.username = response.data.username;
       this.scname = response.data.scname;
+      this.rank = response.data.rank
     });
   },
 };

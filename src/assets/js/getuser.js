@@ -12,7 +12,8 @@ export const getuser = {
         axios.get(getuserroute, {
             headers: {
                 "Content-type": "application/json",
-                'Cache-control': "no-cache"
+                'Cache-control': "no-cache",
+                'x-access-token': `${localStorage.getItem('authkey')}`
             },
             withCredentials: true
         }).then((response) => {

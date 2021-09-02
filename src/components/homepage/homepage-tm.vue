@@ -128,7 +128,6 @@ export default {
   data: () => {
     return {
       lang: lang,
-      rank: '',
       showAddTeamInfo: false,
       teaminfo: {
         id: '',
@@ -140,6 +139,12 @@ export default {
       }
     }
   },
+  props: [
+    "username",
+    "teamid",
+    "scname",
+    "rank"
+  ],
   components: {
     teaminfotm,
     teamhistorytm
@@ -203,12 +208,6 @@ export default {
   },
   mounted() {
     this.showInfo();
-  },
-  beforeCreate() {
-    getuser.getuser((response) => {
-      this.rank = response.data.rank;
-      this.teamid = response.data.teamid
-    });
   },
 }
 </script>

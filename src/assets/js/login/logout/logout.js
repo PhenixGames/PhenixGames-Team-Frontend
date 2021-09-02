@@ -10,7 +10,8 @@ export const logout = {
     logout: (cb) => {
         axios.post(logoutroute, {
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                'x-access-token': `${localStorage.getItem('authkey')}`
             },
             withCredentials: true
         }).then((response) => {

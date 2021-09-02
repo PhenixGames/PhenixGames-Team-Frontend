@@ -23,7 +23,7 @@ const player = {
         axios.get(getplayerroute, {
             headers: {
                 "Content-type": "application/json",
-                // "Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
+                'x-access-token': `${localStorage.getItem('authkey')}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -46,7 +46,7 @@ const player = {
         }, {
             headers: {
                 "Content-type": "application/json",
-                // "Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
+                'x-access-token': `${localStorage.getItem('authkey')}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -61,7 +61,7 @@ const player = {
         axios.get(`${getplayerdataroute}${pid}`, {
             headers: {
                 "Content-type": "application/json",
-                // "Authorization": `Bearer ${process.env.VUE_APP_AUTHTOKEN}`,
+                'x-access-token': `${localStorage.getItem('authkey')}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -89,7 +89,6 @@ const player = {
     },
     
     insertMorePlayerData(v, data) {
-        console.log(data)
         v.cid = data.cid;
         v.firstname = data.first_name;
         v.lastname = data.last_name;
