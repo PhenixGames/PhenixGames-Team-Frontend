@@ -40,7 +40,7 @@ export default class Teaminfo {
         }, {
             headers: {
                 "Content-type": "application/json",
-                'x-access-token': `${localStorage.getItem('authkey')}`,
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -61,7 +61,7 @@ export default class Teaminfo {
             headers: {
                 "Content-type": "application/json",
                 'Cache-control': "no-cache",
-                'x-access-token': `${localStorage.getItem('authkey')}`
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`
             },
             withCredentials: true
         }).then((response) => {

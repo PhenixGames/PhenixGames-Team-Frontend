@@ -13,7 +13,7 @@ export const getuser = {
             headers: {
                 "Content-type": "application/json",
                 'Cache-control': "no-cache",
-                'x-access-token': `${localStorage.getItem('authkey')}`
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`
             },
             withCredentials: true
         }).then((response) => {

@@ -23,7 +23,7 @@ const player = {
         axios.get(getplayerroute, {
             headers: {
                 "Content-type": "application/json",
-                'x-access-token': `${localStorage.getItem('authkey')}`,
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -46,7 +46,7 @@ const player = {
         }, {
             headers: {
                 "Content-type": "application/json",
-                'x-access-token': `${localStorage.getItem('authkey')}`,
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -61,7 +61,7 @@ const player = {
         axios.get(`${getplayerdataroute}${pid}`, {
             headers: {
                 "Content-type": "application/json",
-                'x-access-token': `${localStorage.getItem('authkey')}`,
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true

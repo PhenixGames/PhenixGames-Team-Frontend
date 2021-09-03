@@ -24,6 +24,7 @@ const config = getConfig.getConfig();
         beforeCreate() {
             logout.logout((response) => {
                 if(response.status === 200) {
+                    localStorage.removeItem(config.keyStorageName);
                     this.$router.push(config.routing.root.route + config.routing.signin.route);
                 }else {
                     this.error = true;
