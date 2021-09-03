@@ -40,6 +40,11 @@ const routes = [
         path: teamconfig.routing.root.route + teamconfig.routing.game.forum.view.route,
         name: teamconfig.routing.game.forum.name,
         component: () => import ('../views/Team-home.vue')
+    },
+    {
+        path: teamconfig.routing.root.route + teamconfig.routing.game.apply.view.route,
+        name: teamconfig.routing.game.apply.view.name,
+        component: () => import ('../views/Team-apply.vue')
     }
 ];
 
