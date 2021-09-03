@@ -1,5 +1,5 @@
 <template>
-<div id="err_div"></div>
+  <div id="err_div"></div>
   <img
     src="https://www.blackdayz.de/Library/pg/logo/PhenixGames_Logo_no_text.svg"
     class="bg fixed"
@@ -8,7 +8,9 @@
   <div class="wrapper">
     <div class="login">
       <div class="login_pic display-flex justify-content-center">
-        <img src="https://www.blackdayz.de/Library/pg/logo/PhenixGames_Logo_no_text.svg" />
+        <img
+          src="https://www.blackdayz.de/Library/pg/logo/PhenixGames_Logo_no_text.svg"
+        />
       </div>
 
       <ul v-if="errors.length" class="red bold center">
@@ -58,13 +60,13 @@
 <script>
 import { checkForm } from "../../assets/js/login/checkForm";
 import { tmlogin } from "../../assets/js/login/team-login";
-import { getuser } from '../../assets/js/getuser';
-import { getConfig } from '../../assets/js/config/getConfig';
-import Errormessage from '../../assets/js/Errormessage/Errormessage';
-import { getLang } from '../../assets/config/txt/getLang';
+import { getuser } from "../../assets/js/getuser";
+import { getConfig } from "../../assets/js/config/getConfig";
+import Errormessage from "../../assets/js/Errormessage/Errormessage";
+import { getLang } from "../../assets/config/txt/getLang";
 
 const lang = getLang();
-const config = getConfig.getConfig()
+const config = getConfig.getConfig();
 
 export default {
   name: config.routing.signin.name,
@@ -73,7 +75,7 @@ export default {
       errors: [],
       teamid: "",
       password: "",
-    }
+    };
   },
   methods: {
     checkInput: function (e) {
@@ -83,23 +85,24 @@ export default {
       if (check) {
         let Error = new Errormessage(check, 1);
         Error.mountError();
-        return
-      };
+        return;
+      }
 
       tmlogin.tmlogin(this.teamid, this.password, (response) => {
-        if(response.status === 203) {
+        if (response.status === 203) {
             let Error = new Errormessage(lang.errors.teamidnonumber, 1);
             Error.mountError();
             return;
-        }else if(response.status === 200) {
-          //localStorage.setItem('pg_authkey', res)
-          this.$router.push({path: config.routing.root.route});
-          return;
-        }else {
-          let Error = new Errormessage(lang.login.noaccfound, 1);
-          Error.mountError();
-          return;
+        } else if (response.status === 202) {
+            localStorage.setItem("authkey", response.data);
+            this.$router.push({ path: config.routing.root.route });
+            return;
+        } else {
+            let Error = new Errormessage(lang.login.noaccfound, 1);
+            Error.mountError();
+            return;
         }
+        return;
       });
     },
   },

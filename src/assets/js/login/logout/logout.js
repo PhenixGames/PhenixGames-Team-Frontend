@@ -8,10 +8,11 @@ const logoutroute = (process.env.NODE_ENV === 'production') ?
 
 export const logout = {
     logout: (cb) => {
-        axios.post(logoutroute, {
+        axios.post(logoutroute, {}, {
             headers: {
                 "Content-type": "application/json",
-                'x-access-token': `${localStorage.getItem('authkey')}`
+                'Cache-control': "no-cache",
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`
             },
             withCredentials: true
         }).then((response) => {

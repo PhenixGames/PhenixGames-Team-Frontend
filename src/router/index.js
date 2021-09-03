@@ -3,6 +3,8 @@ import {createRouter, createWebHistory} from 'vue-router';
 import {getuser} from '../assets/js/getuser';
 import Errormessage from '../assets/js/Errormessage/Errormessage';
 import {getLang} from '../assets/config/txt/getLang';
+import { getConfig } from '../assets/js/config/getConfig';
+const config = getConfig.getConfig();
 const lang = getLang();
 const routes = [
     {
@@ -47,28 +49,32 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    getuser.getuser((response) => {
-        if(response.status === 200 || response.status === 204) {
-            if(to.fullPath === teamconfig.routing.root.route + teamconfig.routing.signin.route && response.data) {
-                return next({
-                    path: teamconfig.routing.root.route + teamconfig.routing.home.route
-                });
-            }
-            if(to.name !== teamconfig.routing.signin.name && !response.data) {
-                let Error = new Errormessage(lang.errors.notloggedin + ' ' + lang.errors.signinfirst, 1);
-                Error.mountError();
+    if(localStorage.getItem(config.keyStorageName)) {
+        getuser.getuser((response) => {
+            if(response.status === 200 || response.status === 204) {
+                if(to.fullPath === teamconfig.routing.root.route + teamconfig.routing.signin.route && response.data) {
+                    return next({
+                        path: teamconfig.routing.root.route + teamconfig.routing.home.route
+                    });
+                }
+                if(to.name !== teamconfig.routing.signin.name && !response.data) {
+                    let Error = new Errormessage(lang.errors.notloggedin + ' ' + lang.errors.signinfirst, 1);
+                    Error.mountError();
 
-                return next({
-                    path: teamconfig.routing.root.route + teamconfig.routing.signin.route
-                });
+                    return next({
+                        path: teamconfig.routing.root.route + teamconfig.routing.signin.route
+                    });
+                }
+                return next();
+            }else {
+                let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 1);
+                Error.mountError();
+                return next();
             }
-            return next();
-        }else {
-            let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 1);
-            Error.mountError();
-            return next();
-        }
-    });
+        });
+    }else {
+        return next();
+    }
 });
 
 export default router
