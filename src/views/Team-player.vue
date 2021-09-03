@@ -6,8 +6,8 @@
     @import url('../assets/css/player/player-tm.css');
 </style>
 <script>
-import navtm from '../components/_nav/nav-tm.vue';
-import playertm from '../components/player/player-tm.vue';
+import navtm from '../components/_nav/nav-tm.component.vue';
+import playertm from '../components/player/player-tm.component.vue';
 import { getConfig } from '../assets/js/config/getConfig';
 import { getuser } from '../assets/js/getuser';
 
