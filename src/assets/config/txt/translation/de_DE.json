@@ -47,6 +47,9 @@
         "status": "Status",
         "playerlist": "Spielerliste",
         "respawn": "Respawn",
+        "applicant": "Antragsteller",
+        "subject": "Betreff",
+        "applications": "Bewerbungen",
         "support": {
             "up": "Support",
             "down": "support"
@@ -157,5 +160,12 @@
     "teaminfo": {
         "teaminfohistory": "Team Informationsverlauf",
         "teaminfomessage_empty": "Die Teaminfonachricht darf nicht leer sein."
+    },
+    "apply": {
+        "status": {
+            "0": "Nicht bearbeitet",
+            "1": "In Bearbeitung",
+            "2": "Erledigt: "
+        }
     }
 }
