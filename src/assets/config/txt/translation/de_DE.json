@@ -110,7 +110,19 @@
         "unparked": "Ausgeparkt",
         "parked": "Eingeparkt",
         "vehlist": "Fahrzeugliste",
-        "delete": "Löschen"
+        "delete": "Löschen",
+        "show": {
+            "up": "Anzeigen",
+            "down": "anzeigen"
+        },
+        "accept": {
+            "up": "Annehmen",
+            "down": "annehmen"
+        },
+        "deny": {
+            "up": "Ablehnen",
+            "down": "ablehnen"
+        }
     },
     "login": {
         "error_b": "Du musst eine TeamID angeben.",
