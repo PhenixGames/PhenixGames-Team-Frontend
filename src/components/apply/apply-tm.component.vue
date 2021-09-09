@@ -6,7 +6,7 @@
             </div>
             <div style="width: 400px;">
                 <div class="tab center">
-                    <span class="fsize-1-5">{{lang.words.applications}}: <span id="p_apply">{{onlineplayer}}</span></span>
+                    <span class="fsize-1-5">{{lang.words.applications}}: <span id="p_apply">{{applys}}</span></span>
                 </div>
             </div>
         </header>
@@ -22,13 +22,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="item in player" @click="selectApply(item.bid)" :class="(selectedBid === item.bid) ? 'apply_selected' : ''">
-                            <th :class="(item.online) ? 'user-select-none online' : 'user-select-none offline'">{{(item.online) ? 'Online' : 'Offline'}}</th>
+                        <tr v-for="item in apply" @click="selectApply(item.bid)" :class="(selectedBid === item.bid) ? 'apply_selected' : ''">
+                            <th>{{item.status}}</th>
                             <th>{{item.bid}}</th>
-                            <th translate="no" :class="(item.VIP) ? 'vip' : '' ">{{item.Rkg_name}}</th>
-                            <th :class="(item.banned) ? 'banned' : 'not_banned' "> {{item.banned}}</th>
+                            <th>{{item.bewerber}}</th>
+                            <th>{{item.betreff}}</th>
                         </tr>
-                        <tr v-if="player == ''">
+                        <tr v-if="apply == ''">
                             <th colspan="4">
                                 <span class="red big bold">{{lang.player.playernotfound}}</span>
                             </th>
@@ -36,25 +36,25 @@
                     </tbody>
                 </table>
             </div>
-            <!-- Respawn, Ts Support Bannen Info  -->
+            <!-- Anzeigen, Annehmen, Ablehnen, Löschen -->
             <div class="int_btn_menu fixed">
                 <input type="checkbox" id="open_int_menu_checkbox" class="display-none"/>
                 <div class="int_btn_main_menu">
                     <div :class="(selectedBid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-bid="selectedBid">
-                        <img src="../../assets/img/icons/repeat_respawn.png" class="right" @click="editP(selectedBid, 0)"/>
-                        <span class="tip white bold">{{lang.words.respawn}}</span>
+                        <img src="../../assets/img/icons/repeat_respawn.png" class="right" @click="editB(selectedBid, 0)"/>
+                        <span class="tip white bold">{{lang.words.show.up}}</span>
                     </div>
                     <div :class="(selectedBid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-bid="selectedBid">
-                        <img src="../../assets/img/icons/support.png" class="right" @click="editP(selectedBid, 1)"/>
-                        <span class="tip white bold">Ts&nbsp;{{lang.words.support.up}}</span>
+                        <img src="../../assets/img/icons/support.png" class="right" @click="editB(selectedBid, 1)"/>
+                        <span class="tip white bold">{{lang.words.accept.up}}</span>
                     </div>
                     <div :class="(selectedBid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-bid="selectedBid">
-                        <img src="../../assets/img/icons/banned.png" class="right" @click="editP(selectedBid, 2)"/>
-                        <span class="tip white bold">{{lang.words.ban.more}}</span>
+                        <img src="../../assets/img/icons/banned.png" class="right" @click="editB(selectedBid, 2)"/>
+                        <span class="tip white bold">{{lang.words.deny.up}}</span>
                     </div>
                     <div :class="(selectedBid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-bid="selectedBid">
-                        <img src="../../assets/img/icons/more-info.png" class="right" @click="editP(selectedBid, 3)"/>
-                        <span class="tip white bold">{{lang.words.infos.short.one.up}}</span>
+                        <img src="../../assets/img/icons/more-info.png" class="right" @click="editB(selectedBid, 3)"/>
+                        <span class="tip white bold">{{lang.words.delete}}</span>
                     </div>
                 </div>
                 <label for="open_int_menu_checkbox">
@@ -101,24 +101,31 @@ export default {
             this.selectedBid = bid
         },
         /**
-         * @param 0 = respawn
-         * @param 1 = support
-         * @param 2 = bannen
-         * @param 3 = info
+         * @param 0 = Show
+         * @param 1 = accept
+         * @param 2 = deny
+         * @param 3 = delete
          */
+        editB(bid, type) {
+            if(type !== 0) {
+                apply.editApply(type, bid, (response) => {
+                    console.log(response)
+                });
+            }else {
+                //showdata
+            }
+        }
     },
     async beforeCreate() {
         await apply.getApply((response) => {  
             if(response.status === 200) {
-                
-            }else if(response.status === 204) {
+                this.applys = response.data.opt.length;
+                this.apply = response.data.opt;
+                return;
+            }else {
                 let Error = new Errormessage(lang.errors.nodata, 0);
                 Error.mountError();
                 return;
-            }else {
-                let Error = new Errormessage(lang.errors.some_went_wrong + ' ' + lang.errors.tryagain, 1);
-                Error.mountError();
-                return;   
             }
         });
     }
