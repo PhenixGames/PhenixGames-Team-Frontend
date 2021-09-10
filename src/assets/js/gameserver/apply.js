@@ -15,8 +15,9 @@ const applyEditRoute = (process.env.NODE_ENV === 'production') ?
 
 
 const apply = {
-    getApply: (cb) => {
-        axios.get(applyGetRoute, {
+    getApply: (req, bid, cb) => {
+        let query = (req) ? `?q=${req}`: `?q=${req}&bid=${bid}`;
+        axios.get(applyGetRoute + query,  {
             headers: {
                 "Content-type": "application/json",
                 'x-access-token': `${localStorage.getItem(config.keyStorageName)}`,
@@ -24,9 +25,9 @@ const apply = {
             },
             withCredentials: true
         }).then((response) => {
-            cb(response);
+            return cb(response);
         }).catch((err) => {
-            cb(err);
+            return cb(err);
         });
     },
     editApply: (type, bid, cb) => {
