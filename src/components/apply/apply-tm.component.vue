@@ -112,12 +112,21 @@ export default {
                     console.log(response)
                 });
             }else {
-                //showdata
+                apply.getApply(false, bid, (response) => {  
+                    if(response.status === 200) {
+                        alert(JSON.stringify(response.data.opt));
+                        return;
+                    }else {
+                        let Error = new Errormessage(lang.errors.nodata, 0);
+                        Error.mountError();
+                        return;
+                    }
+                });
             }
         }
     },
     async beforeCreate() {
-        await apply.getApply((response) => {  
+        await apply.getApply(true, '', (response) => {  
             if(response.status === 200) {
                 this.applys = response.data.opt.length;
                 this.apply = response.data.opt;
