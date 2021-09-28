@@ -23,7 +23,13 @@
                     </thead>
                     <tbody>
                         <tr v-for="item in apply" @click="selectApply(item.bid)" :class="(selectedBid === item.bid) ? 'apply_selected' : ''">
-                            <th>{{item.status}}</th>
+                            <th>
+                                <span v-if="item.status == '0'">{{lang.words.submitted}}</span>
+                                <span v-else-if="item.status == '1'">{{lang.words.inprogress}}</span>
+                                <span v-else-if="item.status == '2'">{{lang.words.accepted}}</span>
+                                <span v-else-if="item.status == '3'">{{lang.words.denied}}</span>
+                                <span v-else></span>
+                            </th>
                             <th>{{item.bid}}</th>
                             <th>{{item.bewerber}}</th>
                             <th>{{item.betreff}}</th>
@@ -41,11 +47,11 @@
                 <input type="checkbox" id="open_int_menu_checkbox" class="display-none"/>
                 <div class="int_btn_main_menu">
                     <div :class="(selectedBid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-bid="selectedBid">
-                        <img src="../../assets/img/icons/repeat_respawn.png" class="right" @click="editB(selectedBid, 0)"/>
+                        <img src="../../assets/img/icons/repeat_respawn.png" class="right" @click="editB(selectedBid, 1)"/>
                         <span class="tip white bold">{{lang.words.show.up}}</span>
                     </div>
                     <div :class="(selectedBid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-bid="selectedBid">
-                        <img src="../../assets/img/icons/support.png" class="right" @click="editB(selectedBid, 1)"/>
+                        <img src="../../assets/img/icons/support.png" class="right" @click="editB(selectedBid, 2)"/>
                         <span class="tip white bold">{{lang.words.accept.up}}</span>
                     </div>
                     <div :class="(selectedBid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-bid="selectedBid">
@@ -53,7 +59,7 @@
                         <span class="tip white bold">{{lang.words.deny.up}}</span>
                     </div>
                     <div :class="(selectedBid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-bid="selectedBid">
-                        <img src="../../assets/img/icons/more-info.png" class="right" @click="editB(selectedBid, 3)"/>
+                        <img src="../../assets/img/icons/more-info.png" class="right" @click="editB(selectedBid, 4)"/>
                         <span class="tip white bold">{{lang.words.delete}}</span>
                     </div>
                 </div>
@@ -68,6 +74,7 @@
 </template>
 
 <script>
+import { resolveDynamicComponent } from '@vue/runtime-core';
 import { getLang } from '../../assets/config/txt/getLang'
 import { getConfig } from '../../assets/js/config/getConfig';
 import Errormessage from '../../assets/js/Errormessage/Errormessage';
@@ -101,15 +108,23 @@ export default {
             this.selectedBid = bid
         },
         /**
-         * @param 0 = Show
-         * @param 1 = accept
-         * @param 2 = deny
-         * @param 3 = delete
+         * @param 1 = Show
+         * @param 2 = accept
+         * @param 3 = deny
+         * @param 4 = delete
          */
         editB(bid, type) {
-            if(type !== 0) {
+            if(type !== 1) {
                 apply.editApply(type, bid, (response) => {
-                    console.log(response)
+                    if(response.status === 200) {
+                        let Error = new Errormessage(response.data.code, 2);
+                        Error.mountError();
+                        return;
+                    }else if(response.status === 403) {
+                        let Error = new Errormessage(response.response.data.code, 0);
+                        Error.mountError();
+                        return;
+                    }
                 });
             }else {
                 apply.getApply(false, bid, (response) => {  

@@ -11,6 +11,12 @@
     }
 }
 
+@media only screen and (max-width: 883px) {
+    .applylist tr th {
+        padding: 30px;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .apply_section header {
         display: inline-grid !important;
@@ -26,7 +32,6 @@
     }
 
     .apply_section > main > div:nth-child(1) {
-        width: 104%;
         display: inline-flex;
         justify-content: space-between;
     }

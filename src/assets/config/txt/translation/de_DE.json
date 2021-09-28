@@ -122,7 +122,11 @@
         "deny": {
             "up": "Ablehnen",
             "down": "ablehnen"
-        }
+        },
+        "submitted": "Eingereicht",
+        "inprogress": "In Bearbeitung",
+        "accepted": "Aktzeptiert",
+        "denied": "Abgelehnt"
     },
     "login": {
         "error_b": "Du musst eine TeamID angeben.",
