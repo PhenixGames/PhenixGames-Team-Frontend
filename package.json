@@ -7,19 +7,19 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "axios": "0.21.1",
-    "core-js": "3.16.2",
+    "axios": "0.21.2",
+    "core-js": "3.22.8",
     "jwt-decode": "^3.1.2",
-    "validator": "^13.6.0",
-    "vue": "3.2.4",
-    "vue-cookies": "^1.7.4",
+    "validator": "^13.7.0",
+    "vue": "3.2.36",
+    "vue-cookies": "^1.8.1",
     "vue-js-cookie": "^2.1.0",
-    "vue-router": "4.0.11",
+    "vue-router": "4.0.15",
     "vue-uuid": "2.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-router": "~5.0.4",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0"
   }
