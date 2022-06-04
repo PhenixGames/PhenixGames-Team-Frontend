@@ -28,9 +28,9 @@
             <span>{{lang.words.forum}}</span><img src="https://img.icons8.com/bubbles/50/000000/myspace.png" />
         </div></router-link>
 
-        <a href="bewerbungen.php" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
+        <router-link :to="{path: routes.games.apply}" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
             <span>{{lang.words.apply.more}}</span><img src="https://img.icons8.com/ultraviolet/40/000000/gpx.png" />
-        </div></a>
+        </div></router-link>
 
         <a href="#" class="white" rel="noopener noreferrer"><div class="nav-link cursor-pointer">
             <span>{{lang.words.request.more}}</span><img src="https://img.icons8.com/offices/40/000000/invite.png" />
@@ -102,7 +102,8 @@ export default {
                 games: {
                     player: root + config.routing.game.player.view.route,
                     vehicle: root + config.routing.game.vehicle.view.route,
-                    forum: root + config.routing.game.forum.view.route
+                    forum: root + config.routing.game.forum.view.route,
+                    apply: root + config.routing.game.apply.view.route
                 }
             },
             currentTime: '',

@@ -8,8 +8,8 @@
 </style>
 
 <script>
-import navtm from "../components/_nav/nav-tm.vue";
-import homepagetm from "../components/homepage/homepage-tm.vue";
+import navtm from "../components/_nav/nav-tm.component.vue";
+import homepagetm from "../components/homepage/homepage-tm.component.vue";
 import { getuser } from "../assets/js/getuser";
 import { getConfig } from "../assets/js/config/getConfig";
 

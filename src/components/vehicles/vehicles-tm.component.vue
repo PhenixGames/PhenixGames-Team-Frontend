@@ -43,19 +43,19 @@
             <div class="int_btn_menu fixed">
                 <input type="checkbox" id="open_int_menu_checkbox" class="display-none"/>
                 <div class="int_btn_main_menu">
-                    <div :class="(selectedVid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-pid="selectedVid">
+                    <div :class="(selectedVid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'">
                         <img src="../../assets/img/icons/repeat_respawn.png" class="right" @click="editVeh(selectedVid, 0)"/>
                         <span class="tip white bold">{{lang.words.respawn}}</span>
                     </div>
-                    <div :class="(selectedVid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-pid="selectedVid">
+                    <div :class="(selectedVid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'">
                         <img src="../../assets/img/icons/support.png" class="right" @click="editVeh(selectedVid, 1)"/>
                         <span class="tip white bold whitespace-nowrap" translate="no">S-T-T-R-D</span><!-- Set to the right dimension-->
                     </div>
-                    <div :class="(selectedVid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-pid="selectedVid">
+                    <div :class="(selectedVid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'">
                         <img src="../../assets/img/icons/delete.png" class="right" @click="editVeh(selectedVid, 2)"/>
                         <span class="tip white bold">{{lang.words.delete}}</span>
                     </div>
-                    <div :class="(selectedVid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-pid="selectedVid">
+                    <div :class="(selectedVid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'">
                         <img src="../../assets/img/icons/more-info.png" class="right" @click="editVeh(selectedVid, 3)"/>
                         <span class="tip white bold">{{lang.words.infos.short.one.up}}</span>
                     </div>

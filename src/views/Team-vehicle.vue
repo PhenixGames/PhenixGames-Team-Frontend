@@ -4,10 +4,10 @@
 </template>
 
 <script>
-import navtm from '../components/_nav/nav-tm.vue';
+import navtm from '../components/_nav/nav-tm.component.vue';
 import { getConfig } from '../assets/js/config/getConfig';
 import { getuser } from '../assets/js/getuser';
-import vehiclestm from '../components/vehicles/vehicles-tm.vue';
+import vehiclestm from '../components/vehicles/vehicles-tm.component.vue';
 
 const config = getConfig.getConfig();
 

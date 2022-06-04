@@ -2,6 +2,7 @@
     "frontend":  {
        "baseURL": "/"
     },
+    "keyStorageName": "authkey",
     "routing": {
         "root": {
             "route": "/team",
@@ -20,6 +21,16 @@
             "name": "Team Home"
         },
         "game": {
+            "teaminfo": {
+                "get": {
+                    "route": "/getteaminfo?q=",
+                    "name": "Get Teaminfo"
+                },
+                "edit": {
+                    "route": "/setteaminfo",
+                    "name": "Set Teaminfo"
+                }
+            },
             "player": {
                 "view": {
                     "route": "/getplayer",
@@ -51,6 +62,16 @@
                 "view": {
                     "route": "/forum/view",
                     "name": "View Forum"
+                }
+            },
+            "apply": {
+                "view": {
+                    "route": "/applications",
+                    "name": "Applications"
+                },
+                "edit": {
+                    "route": "/editapplication",
+                    "name": "Edit Application"
                 }
             }
         }

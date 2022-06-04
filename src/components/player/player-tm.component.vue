@@ -101,19 +101,19 @@
             <div class="int_btn_menu fixed">
                 <input type="checkbox" id="open_int_menu_checkbox" class="display-none"/>
                 <div class="int_btn_main_menu">
-                    <div :class="(selectedPid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-pid="selectedPid">
+                    <div :class="(selectedPid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'">
                         <img src="../../assets/img/icons/repeat_respawn.png" class="right" @click="editP(selectedPid, 0)"/>
                         <span class="tip white bold">{{lang.words.respawn}}</span>
                     </div>
-                    <div :class="(selectedPid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-pid="selectedPid">
+                    <div :class="(selectedPid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'">
                         <img src="../../assets/img/icons/support.png" class="right" @click="editP(selectedPid, 1)"/>
                         <span class="tip white bold">Ts&nbsp;{{lang.words.support.up}}</span>
                     </div>
-                    <div :class="(selectedPid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-pid="selectedPid">
+                    <div :class="(selectedPid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'">
                         <img src="../../assets/img/icons/banned.png" class="right" @click="editP(selectedPid, 2)"/>
                         <span class="tip white bold">{{lang.words.ban.more}}</span>
                     </div>
-                    <div :class="(selectedPid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'" :data-pid="selectedPid">
+                    <div :class="(selectedPid) ? 'int_btn int_btn_ts' : ' int_btn int_btn_ts cursor-no-drop'">
                         <img src="../../assets/img/icons/more-info.png" class="right" @click="editP(selectedPid, 3)"/>
                         <span class="tip white bold">{{lang.words.infos.short.one.up}}</span>
                     </div>

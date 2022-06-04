@@ -21,7 +21,7 @@ const vehicle = {
         axios.get(getvehicleroute, {
             headers: {
                 "Content-type": "application/json",
-                'x-access-token': `${localStorage.getItem('authkey')}`,
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -40,7 +40,7 @@ const vehicle = {
             type: type,
             headers: {
                 "Content-type": "application/json",
-                'x-access-token': `${localStorage.getItem('authkey')}`,
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true
@@ -57,7 +57,7 @@ const vehicle = {
         axios.get(`${getoneroute}${vid}`, {
             headers: {
                 "Content-type": "application/json",
-                'x-access-token': `${localStorage.getItem('authkey')}`,
+                'x-access-token': `${localStorage.getItem(config.keyStorageName)}`,
                 'Cache-control': "no-cache"
             },
             withCredentials: true

@@ -116,9 +116,9 @@
 import { getLang } from '../../assets/config/txt/getLang';
 import { getConfig } from '../../assets/js/config/getConfig';
 import { getuser } from '../../assets/js/getuser';
-import Teaminfo from '../../assets/js/teaminfo/teaminfo';
-import teaminfotm from '../../components/teaminfo/teaminfo-tm.vue';
-import teamhistorytm from '../../components/teaminfo/teamhistory-tm.vue';
+import Teaminfo from '../../assets/js/teaminfo/Teaminfo';
+import teaminfotm from '../teaminfo/teaminfo-tm.component.vue';
+import teamhistorytm from '../teaminfo/teamhistory-tm.component.vue';
 
 const config = getConfig.getConfig();
 const lang = getLang();

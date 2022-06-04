@@ -47,6 +47,9 @@
         "status": "Status",
         "playerlist": "Spielerliste",
         "respawn": "Respawn",
+        "applicant": "Antragsteller",
+        "subject": "Betreff",
+        "applications": "Bewerbungen",
         "support": {
             "up": "Support",
             "down": "support"
@@ -107,7 +110,23 @@
         "unparked": "Ausgeparkt",
         "parked": "Eingeparkt",
         "vehlist": "Fahrzeugliste",
-        "delete": "Löschen"
+        "delete": "Löschen",
+        "show": {
+            "up": "Anzeigen",
+            "down": "anzeigen"
+        },
+        "accept": {
+            "up": "Annehmen",
+            "down": "annehmen"
+        },
+        "deny": {
+            "up": "Ablehnen",
+            "down": "ablehnen"
+        },
+        "submitted": "Eingereicht",
+        "inprogress": "In Bearbeitung",
+        "accepted": "Aktzeptiert",
+        "denied": "Abgelehnt"
     },
     "login": {
         "error_b": "Du musst eine TeamID angeben.",
@@ -157,5 +176,12 @@
     "teaminfo": {
         "teaminfohistory": "Team Informationsverlauf",
         "teaminfomessage_empty": "Die Teaminfonachricht darf nicht leer sein."
+    },
+    "apply": {
+        "status": {
+            "0": "Nicht bearbeitet",
+            "1": "In Bearbeitung",
+            "2": "Erledigt: "
+        }
     }
 }
