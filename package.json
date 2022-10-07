@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.1.0",
     "core-js": "3.24.0",
     "jwt-decode": "^3.1.2",
     "validator": "^13.6.0",
